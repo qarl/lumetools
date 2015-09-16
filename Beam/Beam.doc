@@ -1,0 +1,93 @@
+
+
+Beam                                     lume
+---------------------------------------------
+
+
+       The Beam shader provides a quick
+       means to get atmospheric effects
+       from light sources. Halos around
+       bright lights, sunbeams from win-
+       dows, and light cones from spot-
+       lights are typical examples of the
+       Beam shader in action.
+
+       Unlike most other volumic lighting
+       shaders, Beam is ultra-fast: tests
+       on typical scenes show that Beam
+       adds less than 10% to the rendering
+       time. This speed is achieved by
+       eliminating shadow calculations;
+       this means that when shadows are
+       necessary, the artist is responsi-
+       ble creating geometry for the
+       beam's area of effect.
+
+
+
+  Procedure
+
+       On a point light
+
+        Create a point light with
+        Light->Define.
+
+        Choose Atmosphere->Depth Fading...
+
+        Turn on depth fading, and select
+        Beam as the depth fading shader.
+
+        In the Beam dialogue box, click
+        the Select button and choose the
+        point light.
+
+       On a spot light
+
+        Create a spotlight with Light->De-
+        fine.
+
+        Get a cone with Get->Primi-
+        tive->Cone.
+
+        Scale and position the cone so
+        that it exactly overlaps the
+        light's cone.
+
+        In the cone's Material dialogue
+        box, set the transparency to 1.
+
+        Again in the cone's Material dia-
+        logue box, select Beam as the vol-
+        ume shader.
+
+        In the Beam dialogue box, click
+        the Select button, and choose the
+        spotlight.
+
+
+
+  Parameters
+
+       Fog Density allows the artist to
+       adjust the ``thickness'' of the fog
+       surrounding the light source. Larg-
+       er values cause the beam to be big-
+       ger and brighter; smaller values
+       cause the beam to be smaller and
+       dimmer.
+
+       [IMAGE]
+
+       Color sets the color of the virtual
+       fog particles, which will effect
+       the color of the beam. The final
+       color of the beam is determined by
+       both the color of the particles and
+       the color of the lights.
+
+       [IMAGE]
+
+       Lights specifies which lights
+       should produce beams.
+
+---------------------------------------------

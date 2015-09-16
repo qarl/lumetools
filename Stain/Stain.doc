@@ -1,0 +1,44 @@
+
+
+Stain                                    lume
+---------------------------------------------
+
+
+       The Stain shader is useful only
+       when used in conjunction with other
+       shaders. Its sole purpose is to de-
+       fine an area of effect: any materi-
+       al within the staining object is
+       considered ``stained''. Different
+       shaders make use of staining in
+       various ways. (See Landscape and
+       Wet shaders.)
+
+       [IMAGE]
+
+       Staining works by looking at the
+       path of the rays: if a ray passes
+       through a staining object, the ray
+       becomes stained, and then stains
+       any object it strikes. This has an
+       unexpected consequence: if the cam-
+       era enters the staining object, eye
+       rays will no longer pass through
+       staining object before other sur-
+       faces, and stains will become ``re-
+       versed.'' Try to avoid sending the
+       camera into a staining object.
+
+
+
+  Procedure
+
+        Create the staining object.
+
+        Make the staining object transpar-
+        ent.
+
+        In the Material dialogue box, se-
+        lect Stain as the material shader.
+
+---------------------------------------------

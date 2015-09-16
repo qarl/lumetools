@@ -1,0 +1,185 @@
+_FILETYPE
+VERSION 1.0
+DEFAULT ON
+NAME "Illumination"
+_END
+
+
+_DESCRIPTION
+
+
+Illumination                             lume
+---------------------------------------------
+
+
+       The Illumination shader performs a
+       simple but important task: provid-
+       ing a physically accurate lighting
+       model for light sources. This can
+       mean gentle and gradual falloff
+       curves for dim lighting, or bright
+       and overexposed central areas in
+       bright lighting.
+
+       Many times CG artists avoid realis-
+       tic lighting because of its tenden-
+       cy to create areas of overexposure,
+       which often look unnatural due to
+       their hard edges. The Glare shader
+       corrects this problem, creating
+       overexposures that look realistic;
+       by using Illumination in combina-
+       tion with Glare, natural lighting
+       effects can be easily achieved.
+
+
+
+  Procedure
+
+        In the edit-light dialogue box,
+        select Illumination as the light
+        shader.
+
+        Edit Illumination's parameters.
+
+
+
+  Parameters
+
+       Brightness Multiplier allows the
+       artist to turn-up the light's
+       brightness well past 1, likely
+       causing overexposure in some parts
+       of the image.
+
+
+
+       Falloff
+
+       With Falloff the artist can set how
+       he wants the light to behave as it
+       falls off from the source. None and
+       Linear are identical to the SoftIm-
+       age built in light: None tells the
+       light to illuminate all objects
+       with the same brightness regardless
+       of distance, while Linear provides
+       the same linear fall off that a
+       typical SoftImage light uses.
+
+       Realistic uses the r-squared law
+       for fall off. Unlike the Linear
+       falloff, Realistic fall off causes
+       nearby objects to be extremely
+       bright, while at the same time dis-
+       tant objects never quite become
+       completely black.
+
+       Custom let's the artist specify a
+       custom curve for the light falloff.
+       Start specifies the distance at
+       which the light begins to diminish,
+       Mid specifies the distance at which
+       the light is at half intensity, and
+       End specifies the distance at which
+       the light becomes completely black.
+       (See the discussion on Custom
+       Curves at the end of this chapter.)
+
+---------------------------------------------
+
+_END
+
+
+_DIALOG_TEMPLATE
+1,	"Illumination", 46,	1,	7,	437, 164, 843, 859
+   1,	2,	"Ok",		745, 180, 825, 217, 0
+   2,	2,	"Cancel",	655, 180, 735, 217, 0
+   3,	2,	"Insert",	667, 319, 737, 344, 0
+   4,	2,	"Next",		617, 319, 658, 344, 0
+   5,	2,	"Prev",		568, 319, 612, 344, 0
+   6,	2,	"Remove",	741, 319, 811, 344, 0
+   7,	5,	"1",		466, 315, 532, 345, 2, -99999, 999999, 0
+   8,	11,	"tuning",	532, 315, 560, 345, 7, 0, 1, 10, 100
+   9,	2,	"Save",		547, 180, 627, 217, 0
+   10,	2,	"Help",		457, 180, 537, 217, 0
+   11,	5,	"",		457, 234, 825, 264, 0, MIN, MAX, 0
+   12,	0,	"User Comment",	457, 270, 565, 285, 0
+   13,	6,	"graf",		456, 302, 823, 360, 1
+   14,	0,	" Keyframe ",	466, 357, 556, 372, 0
+   15,	0,	"L U M E",	610, 843, 673, 858, 0
+   16,	4,	"None",		480, 668, 570, 683, 0
+   17,	4,	"Realistic",	480, 636, 570, 651, 1
+   18,	4,	"Linear",	480, 604, 570, 619, 0
+   19,	0,	"Start:",	512, 580, 566, 595, 0
+   20,	0,	"End:",		512, 548, 548, 563, 0
+   21,	4,	"Custom",	480, 508, 570, 523, 0
+   22,	0,	"Start:",	512, 484, 566, 499, 0
+   23,	0,	"Mid:",		512, 452, 548, 467, 0
+   24,	0,	"End:",		512, 420, 548, 435, 0
+   25,	5,	"0.00",		576, 572, 626, 602, 3, 0, 100, 27
+   26,	11,	"tuning",	627, 572, 655, 602, 25, 27, 1, 2, 3
+   27,	9,	"slider",	656, 572, 805, 602, 25, 0, 100, 1
+   28,	5,	"100",		576, 540, 626, 570, 3, 0, 100, 30
+   29,	11,	"tuning",	627, 540, 655, 570, 28, 30, 1, 2, 3
+   30,	9,	"slider",	656, 540, 805, 570, 28, 0, 100, 1
+   31,	5,	"0.00",		576, 476, 626, 506, 3, 0, 100, 33
+   32,	11,	"tuning",	627, 476, 655, 506, 31, 33, 1, 2, 3
+   33,	9,	"slider",	656, 476, 805, 506, 31, 0, 100, 1
+   34,	5,	"2.00",		576, 444, 626, 474, 3, 0, 100, 36
+   35,	11,	"tuning",	627, 444, 655, 474, 34, 36, 1, 2, 3
+   36,	9,	"slider",	656, 444, 805, 474, 34, 0, 100, 1
+   37,	5,	"100.0",	576, 412, 626, 442, 3, 0, 100, 39
+   38,	11,	"tuning",	627, 412, 655, 442, 37, 39, 1, 2, 3
+   39,	9,	"slider",	656, 412, 805, 442, 37, 0, 100, 1
+   40,	5,	"1.00",		576, 764, 626, 794, 3, 0, 10, 42
+   41,	11,	"tuning",	627, 764, 655, 794, 40, 42, 0.1, 0.5, 1
+   42,	9,	"slider",	656, 764, 805, 794, 40, 0, 10, 1
+   43,	6,	"graf",		456, 395, 823, 712, 1
+   44,	0,	" Falloff ",	467, 708, 548, 723, 0
+   45,	0,	"Brightness",	467, 787, 557, 802, 0
+   46,	0,	"Mulitplier:",	466, 768, 565, 783, 0
+
+_SYMBOLS
+  falloff_none_on    16
+  falloff_real_on    17
+  falloff_linear_on    18
+  falloff_custom_on    21
+  falloff_linear_start    25
+  falloff_linear_end    28
+  falloff_custom_start    31
+  falloff_custom_mid    34
+  falloff_custom_end    37
+  brightness    40
+_END
+
+_EXCLUSIVE
+16 17 18 21
+_END
+
+
+
+_DATA
+_END
+
+
+_SHADER_LINKS
+LINK, Illumination.so
+_END
+
+_SHADER_DECLARE
+declare,	Illumination
+scalar,		brightness
+
+boolean,	falloff_none_on
+boolean,	falloff_real_on
+
+boolean,	falloff_linear_on
+scalar,		falloff_linear_start
+scalar,		falloff_linear_end
+
+boolean,	falloff_custom_on
+scalar,		falloff_custom_start
+scalar,		falloff_custom_mid
+scalar,		falloff_custom_end
+_END

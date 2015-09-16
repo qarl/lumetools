@@ -1,0 +1,61 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 ON
+NAME	"Glow"
+_END
+
+
+_DESCRIPTION
+include(Glow.doc)
+_END
+
+
+_DIALOG_TEMPLATE
+include(Glow.dg)
+
+
+_DATA
+_END
+
+_SHADER_PREVIEWER
+PLANE
+  ZPOS -80
+  SIZE 20 20
+  CHECKER
+    SQUARE1 0.8 0 0
+    SQUARE2 0.8 0 0
+    LINE 0.8 0.8 0.8
+    SIZE_SQUARE1 0.125
+    SIZE_SQUARE2 0.125
+    DIFFUSE 0 0 0
+SPHERE
+  ZPOS -20
+  SIZE 5
+WINDOW
+  POS 10 10
+RENDER
+  MIN_SAMPLES -5
+  MAX_SAMPLES 0
+_END
+
+
+
+_SHADER_LINKS
+LINK, Glow.so
+_END
+
+_SHADER_DECLARE
+declare,	Glow
+
+scalar,		brightness
+
+boolean,	color_texture_on
+integer,	color_texture_number
+
+boolean,	color_solid_on
+rgba,		color_solid_color
+
+boolean,	mix_over_on
+boolean,	mix_under_on
+
+_END

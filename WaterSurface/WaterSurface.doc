@@ -1,0 +1,70 @@
+
+
+WaterSurface                             lume
+---------------------------------------------
+
+
+       When looking at water from above,
+       the surface's transparency and re-
+       flectivity changes according to the
+       viewing angle. When looking up from
+       below, this effect is amplified:
+       some areas are completely reflec-
+       tive, while others are completely
+       transparent, with little transition
+       between them.
+
+       The WaterSurface shader simulates
+       these effects and more, to give a
+       realistic appearance to the surface
+       of water.
+
+
+
+  Procedure
+
+        In the Material dialogue box, se-
+        lect WaterSurface as the material
+        shader.
+
+        Set the transparency to 1. Set the
+        reflectivity to 1.
+
+        Edit WaterSurface's parameters.
+
+
+
+  Parameters
+
+       Stain Underneath causes WaterSur-
+       face to act like the Stain shader,
+       ideal for use with the Wet shader.
+       With Stain Underneath selected, ob-
+       jects that have been assigned the
+       Wet shader will show their `wet'
+       texture, when seen through the sur-
+       face of the water. (For further de-
+       tails see the respective Wet and
+       Stain Reference sections.)
+
+       Index of Refraction is a physical
+       property of transparent solids. It
+       controls how far light is bent when
+       entering the object, how transpar-
+       ent the object is, how the reflec-
+       tivity shifts with viewing angle,
+       etc. The Index of Refraction of wa-
+       ter is 1.33; glass is 1.5; diamond
+       is 2.4; alcohol is 1.36.
+
+       Surface specifies the position of
+       the camera. Looking Into Water
+       should be set when the camera is
+       outside the water looking in. Look-
+       ing Out Of Water should be set when
+       the camera is inside the water
+       looking out.
+
+       [IMAGE]
+
+---------------------------------------------

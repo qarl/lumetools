@@ -1,0 +1,152 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 ON
+NAME	"Facade"
+_END
+
+
+_DESCRIPTION
+
+
+Facade                                   lume
+---------------------------------------------
+
+
+       Great for helping to make your
+       deadlines, the Facade shader places
+       virtual cardboard-cutouts in a
+       scene, allowing you to replace com-
+       plex geometry with simple 2D faces.
+       Facade then "rotates" the cutout so
+       that it faces the camera, lights,
+       and reflective surfaces all at the
+       same time. This way stretching in
+       the image, shadows, and reflections
+       is eliminated.
+
+       [IMAGE]
+
+
+
+  Procedure
+
+        Create a containing object (sphere
+        or cylinder are best).
+
+        In the Material dialogue box, set
+        the transparency to 1.
+
+        Assign a texture to the object.
+
+        In the 2D texture dialogue box,
+        select Facade as the texture shad-
+        er.
+
+        Edit Facade's parameters.
+
+
+
+  Parameters
+
+       Facade's Size parameter sets the
+       height of the facade image. Rota-
+       tion controls how the facade is al-
+       lowed to rotate: around the Y-axis
+       only (Cylindrical) or freely in all
+       three dimensions (Spherical).
+
+            NOTE: The texture's scaling,
+            rotation, and translation will
+            all be overridden by the Fa-
+            cade shader.
+
+---------------------------------------------
+
+_END
+
+
+_DIALOG_TEMPLATE
+1,	"Facade", 27,	1,	7,	440, 269, 840, 753
+   1,	2,	"Ok",		744, 283, 824, 320, 0
+   2,	2,	"Cancel",	654, 283, 734, 320, 0
+   3,	2,	"Insert",	744, 442, 814, 467, 0
+   4,	2,	"Next",		690, 406, 731, 431, 0
+   5,	2,	"Prev",		636, 406, 680, 431, 0
+   6,	2,	"Remove",	744, 406, 814, 431, 0
+   7,	5,	"1",		636, 439, 702, 469, 2, -99999, 999999, 0
+   8,	11,	"tuning",	702, 439, 730, 469, 7, 0, 1, 10, 100
+   9,	2,	"Save",		546, 283, 626, 320, 0
+   10,	2,	"Help",		456, 283, 536, 320, 0
+   11,	5,	"",		456, 337, 824, 367, 0, MIN, MAX, 0
+   12,	0,	"User Comment",	456, 373, 564, 388, 0
+   13,	6,	"graf",		624, 397, 824, 487, 1
+   14,	0,	" Keyframe ",	636, 481, 726, 496, 0
+   15,	2,	"Preview",	468, 439, 600, 464, 0
+   16,	3,	"Auto-refresh",	471, 410, 599, 425, 0
+   17,	6,	"graf",		456, 397, 612, 487, 1
+   18,	0,	" Shaderball ",	468, 481, 576, 496, 0
+   19,	0,	"L U M E",	612, 737, 675, 752, 0
+   20,	0,	"^",		638, 651, 647, 666, 0
+   21,	5,	"1.000",	520, 664, 571, 694, 3, 0, 5, 23
+   22,	11,	"tuning",	572, 664, 600, 694, 21, 23, 0.01, 0.05, 0.1
+   23,	9,	"slider",	601, 664, 800, 694, 21, 0, 5, 1
+   24,	0,	"Size:",	472, 672, 517, 687, 0
+   25,	0,	"Rotation:",	472, 616, 553, 631, 0
+   26,	4,	"Cylindrical",	504, 584, 594, 599, 1
+   27,	4,	"Spherical",	504, 560, 594, 575, 0
+
+_SYMBOLS
+  REFRESH    15
+  AUTOREFRESH    16
+  size    21
+  rotation_cylindrical_on    26
+  rotation_spherical_on    27
+_END
+
+_EXCLUSIVE
+26 27
+_END
+
+
+
+_DATA
+_END
+
+
+_SHADER_PREVIEWER
+PLANE
+  ZPOS -80
+  SIZE 20 20
+  CHECKER
+    SQUARE1 0.8 0 0
+    SQUARE2 0.8 0 0
+    LINE 0.8 0.8 0.8
+    SIZE_SQUARE1 0.125
+    SIZE_SQUARE2 0.125
+    DIFFUSE 0 0 0
+SPHERE
+  ZPOS -500
+  SIZE 499
+    MATERIAL
+      TRANSP 1
+WINDOW
+  POS 10 10
+RENDER
+  MIN_SAMPLES -5
+  MAX_SAMPLES 0
+
+_END
+
+
+_SHADER_LINKS
+LINK, Facade.so
+_END
+
+_SHADER_DECLARE
+declare,	Facade
+
+scalar,  	size
+boolean, 	rotation_cylindrical_on
+boolean, 	rotation_spherical_on
+
+_END

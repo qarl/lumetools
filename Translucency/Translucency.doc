@@ -1,0 +1,44 @@
+
+
+Translucency                             lume
+---------------------------------------------
+
+
+       Often in the real world objects re-
+       ceive light from their back side: a
+       paper held up to a light, a lamp
+       shade, light bulbs, frosted or
+       stained glass, sun-dappled tree
+       leaves, etc. Translucency models
+       this effect, letting light that
+       originates behind a surface bleed
+       through to the front.
+
+       [IMAGE]
+
+       The lamp shade gets a proper shad-
+       ing via Translucency and Illumina-
+       tion shaders.
+
+
+
+  Procedure
+
+        In the Material dialogue box, se-
+        lect Translucency as the material
+        shader.
+
+        Adjust the material's transparen-
+        cy.
+
+
+
+  Parameters
+
+       Translucency uses the objects
+       transparency as its only parameter.
+       The transparency can be set through
+       either the object's material or a
+       texture transparency map.
+
+---------------------------------------------

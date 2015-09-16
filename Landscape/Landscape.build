@@ -1,0 +1,107 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 ON
+NAME	"Landscape"
+_END
+
+
+_DESCRIPTION
+include(Landscape.doc)
+_END
+
+
+_DIALOG_TEMPLATE
+include(Landscape.dg)
+
+
+_DATA
+dum1a 0.0
+dum1b 0.0
+dum2a 0.0
+dum2b 0.0
+_END
+
+
+_SHADER_PREVIEWER
+PLANE
+  ZPOS -80
+  SIZE 20 20
+  CHECKER
+    SQUARE1 0.8 0 0
+    SQUARE2 0.8 0 0
+    LINE 0.8 0.8 0.8
+    SIZE_SQUARE1 0.125
+    SIZE_SQUARE2 0.125
+    DIFFUSE 0 0 0
+SPHERE
+  ZPOS -20
+  SIZE 5
+WINDOW
+  POS 10 10
+RENDER
+  MIN_SAMPLES -5
+  MAX_SAMPLES 0
+
+_END
+
+
+_SHADER_LINKS
+LINK, Landscape.so
+_END
+
+_SHADER_DECLARE
+declare,	Landscape
+
+scalar,		blur
+
+boolean,	relative_object_on
+boolean,	relative_world_on
+
+boolean,	previewcolor_none
+boolean,	previewcolor_red
+boolean,	previewcolor_yellow
+boolean,	previewcolor_green
+boolean,	previewcolor_blue
+boolean,	previewcolor_violet
+
+boolean,	image_on
+scalar,		image_influence
+boolean,	image_alpha_on
+boolean,	image_red_on
+boolean,	image_green_on
+boolean,	image_blue_on
+
+boolean,	height_on
+scalar,		height_influence
+boolean,	height_upsidedown
+scalar,		height_height
+scalar,		height_spread
+
+boolean,	slope_on
+scalar,		slope_influence
+boolean,	slope_upsidedown
+scalar,		slope_angle
+
+boolean,	positional_on
+scalar,		positional_influence
+scalar,		positional_size
+scalar,		positional_splotch
+scalar,		positional_coverage
+scalar,		positional_yscale
+
+boolean,	surface_on
+scalar,		surface_influence
+scalar,		surface_size
+scalar,		surface_splotch
+scalar,		surface_coverage
+scalar,		surface_yscale
+
+boolean,	stain_on
+scalar,		stain_influence
+scalar,		stain_thickness
+
+scalar,		dum1a
+scalar,		dum1b
+scalar,		dum2a
+scalar,		dum2b
+_END

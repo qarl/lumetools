@@ -1,0 +1,76 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 OFF
+NAME	"Mist"
+_END
+
+
+_DESCRIPTION
+include(Mist.doc)
+_END
+
+
+_DIALOG_TEMPLATE
+include(Mist.dg)
+
+
+_DATA
+_END
+
+_SHADER_PREVIEWER
+PLANE
+  ZPOS -80
+  SIZE 20 20
+  CHECKER
+    SQUARE1 0.8 0 0
+    SQUARE2 0.8 0 0
+    LINE 0.8 0.8 0.8
+    SIZE_SQUARE1 0.125
+    SIZE_SQUARE2 0.125
+    DIFFUSE 0 0 0
+SPHERE
+  ZPOS -500
+  SIZE 499
+    MATERIAL
+      TRANSP 1
+WINDOW
+  POS 10 10
+RENDER
+  MIN_SAMPLES -5
+  MAX_SAMPLES 0
+
+_END
+
+
+_SHADER_LINKS
+LINK, Mist.so
+_END
+
+_SHADER_DECLARE
+declare,	Mist
+
+scalar,		transparency
+boolean,	alpha_on
+
+boolean,	color_solid_on
+rgba,		color_solid_color
+boolean,	color_map_on
+IMAGE_MAP,	color_map_filename
+
+boolean,	falloff_linear_on
+scalar,		falloff_linear_start
+scalar,		falloff_linear_end
+
+boolean,	falloff_realistic_on
+scalar,		falloff_realistic_density
+
+boolean,	falloff_custom_on
+scalar,		falloff_custom_start
+scalar,		falloff_custom_mid
+scalar,		falloff_custom_end
+
+boolean,	layering_on
+scalar,		layering_baseline
+scalar,		layering_height
+
+_END

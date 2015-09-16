@@ -1,0 +1,624 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 ON
+NAME	"Landscape"
+_END
+
+
+_DESCRIPTION
+
+
+Landscape                                lume
+---------------------------------------------
+
+
+       Landscape is a highly versatile
+       shader that helps to map textures
+       to terrain and other types of com-
+       plex models in useful and natural
+       ways, through attributes such as
+       slope, height, image, and noise
+       functions. For example, on a single
+       piece of terrain geometry it could
+       be used to create dusty pile-ups on
+       plateau surfaces, exposed rock
+       faces in steeper cliff-like areas,
+       and water stains where the ground
+       meets the sea. Especially useful in
+       situations where the size or shape
+       of an object makes handmade tex-
+       tures impractical.
+
+       Landscape works by dynamically re-
+       placing a texture's alpha channel -
+       making its blending more or less
+       opaque according to the effects of
+       the parameter settings.
+
+
+
+  Procedure
+
+        In the texture dialogue box select
+        a texture image which has an al-
+        pha-channel.
+
+        Select Alpha Channel Mask for the
+        texture's blending.
+
+        Select the Landscape shader as the
+        texture shader, and edit its pa-
+        rameters.
+
+
+
+  Effects
+
+       The artist controls Landscape by
+       applying one or more different
+       `effects'. One such effect,
+       Slope, piles a texture on flat sur-
+       faces, like snow piling on a
+       plateau. Height behaves like a wa-
+       terline. Two different noise gener-
+       ators, Shape Based and Position
+       Based, provide natural-looking ir-
+       regularities. Stain allows the
+       artist to confine a texture with
+       the boundaries of another object.
+       Image allows the texture's own col-
+       or or alpha-channel to influence
+       its blending.
+
+       [IMAGE]
+
+       Landscape's real strength comes
+       from allowing the artist to mix
+       these effects. An example is mixing
+       Slope and Height to give snow on
+       high peaks. We'll explore mixing in
+       detail later.
+
+
+
+  Parameters
+
+
+
+       Overall
+
+       Relative to controls whether the
+       positions and angles are measured
+       from the World Center or the Object
+       Center. World Center is good in
+       situations where several different
+       objects need a texture to line up
+       across all the objects. Object Cen-
+       ter is useful when an object needs
+       to move, and the texture must move
+       with it. Also, by rotating the cen-
+       ter in Object Center mode, effects
+       can be applied at an angle other
+       than the horizontal.
+
+       Blur controls the sharpness of the
+       border between the opaque and
+       transparent extremes of the alpha-
+       channel. A value of 0 gives a sharp
+       line, a value of 1 gives a very
+       blurred line.
+
+
+
+       Preview Color
+
+       When mixing several Landscape lay-
+       ers, it can be to difficult see
+       where one texture ends and another
+       begins, especially if the textures
+       are very similar. Preview Color al-
+       lows the artist to temporarily re-
+       place the texture with a bright
+       solid color, so that the borders of
+       the effects can be clearly seen.
+
+
+
+       Slope Effect
+
+       The Slope Effect acts like snow
+       piling on a plateau. Flatter areas
+       receive an opaque alpha-channel
+       while steep areas receive a trans-
+       parent alpha-channel.
+
+       Angle specifies where the cutoff
+       line is, (i.e. how steep the slope
+       is before the snow begins falling
+       off) measured in degrees from the
+       XZ plane.
+
+       Upside Down reverses the direction
+       of the effect, so that the alpha-
+       channel is opaque in steep areas
+       and and transparent in flat areas.
+
+       Influence is used for mixing, see
+       below.
+
+
+
+       Height Effect
+
+       The Height Effect creates a hori-
+       zontal line across the object; ar-
+       eas above the line receive an
+       opaque alpha-channel, areas below
+       receive a transparent alpha-chan-
+       nel.
+
+       Height specifies how high the line
+       should be, expressed in SoftImage
+       units; the line is measured either
+       from the object's center or from
+       the world center, according to the
+       settings in Overall: Relative to
+       (see above).
+
+       Spread tells how wide the area of
+       effect should be, for blurring and
+       mixing with other effects.
+
+       Upside Down reverses the direction,
+       so that the alpha-channel is opaque
+       below the height-line and transpar-
+       ent above it.
+
+       Influence is used for mixing, see
+       below.
+
+
+
+       Position Based Noise and Shape
+       Based Noise
+
+       The two noise generators provide a
+       way to insert randomness into the
+       landscape. Position Based Noise is
+       the noise generator most people are
+       familiar with; it is based upon the
+       surface's absolute position in
+       space. Unfortunately, the noise
+       isn't effected by the shape of the
+       surface, and so can sometimes pro-
+       duce an unnatural pattern.
+
+       Shape Based Noise helps alleviate
+       this problem by using the shape ex-
+       clusively as the seed for the
+       noise. This means that as the sur-
+       face dips and curves, Shape Based
+       Noise will give variations that re-
+       flect the change. The drawback
+       comes when two objects have the
+       same shape, they will have the same
+       noise; or when a surface is flat,
+       it will receive no noise.
+
+       [IMAGE]
+
+       A good effect can often be achieved
+       by mixing Position Based and Shape
+       Based noises.
+
+       Scale controls the size of the
+       largest clumps of noise.  For Posi-
+       tion Based Noise, Scale is measured
+       in SoftImage units.  For Shape
+       Based Noise, Scale is measured in
+       degrees.
+
+       [IMAGE]
+
+       Roughness controls how jagged the
+       edge of the noise is. A value of 0
+       gives a smooth edge, while a value
+       of 1 gives a rough, speckled edge.
+
+       [IMAGE]
+
+       Coverage controls what percentage
+       of the overall alpha-channel is
+       opaque. A value of 0 gives 50%
+       opaque areas, 50% transparent ar-
+       eas. Smaller values give less
+       opaque ares, larger values give
+       more opaque areas.
+
+       [IMAGE]
+
+       Y-Scale lets the artist stretch the
+       noise in the Y direction. A value
+       less than 1 compresses the noise in
+       the Y direction, giving an appear-
+       ance similar to sedimentary rock; a
+       value greater than 1 stretches the
+       noise in the Y direction, giving a
+       appearance similar to dripping
+       stains.
+
+       [IMAGE]
+
+       Influence is used for mixing, see
+       below.
+
+
+
+       Stain Effect
+
+       The Stain Effect works in conjunc-
+       tion with the Stain shader. Any
+       area of the texture contained by a
+       staining object will receive an
+       opaque alpha-channel, while areas
+       outside the staining object will
+       receive a transparent alpha-chan-
+       nel.
+
+       Thickness is used to control how
+       far a point must lie within the
+       staining object before the alpha-
+       channel becomes opaque.
+
+            WARNING: This thickness is de-
+            termined by the viewing angle.
+            Large values for the thickness
+            can cause the texturing to
+            change as the object or camera
+            change their relative position
+            in the scene; this can be par-
+            ticularly undesirable in ani-
+            mation sequences.
+
+       Influence is used for mixing, see
+       below.
+
+
+
+       Image Effect
+
+       The Image Effect uses the texture
+       itself to effect the alpha channel.
+       Any combination of the red, green,
+       blue, or alpha channels can be
+       used. Values in the image above 0.5
+       will give an opaque alpha-channel,
+       while values below 0.5 give a
+       transparent alpha-channel.
+
+       Influence is used for mixing, see
+       below.
+
+
+
+       Mixing Effects
+
+       A wide variety of patterns can be
+       achieved by mixing these effects
+       together. Mixing is accomplished by
+       adjusting the Influence slider in
+       each of the active effects. An ef-
+       fect with a high Influence value
+       will tend to dominate the other ef-
+       fects; an effect with a low Influ-
+       ence value will only subtly modify
+       the other effects.  When specifying
+       Influences, the ratio of the influ-
+       ences is all that is important.
+
+       For example, by mixing Height with
+       a small amount of Position Based
+       Noise, we get a roughened Height
+       line. But if we begin turning up
+       the Influence of the noise, the
+       line breaks up. At high enough val-
+       ues, we can't distinguish the line;
+       all we can tell is that the noise
+       is thicker at the top.
+
+       [IMAGE]
+
+       Another example is the mixture of
+       Height and Slope. With a high In-
+       fluence for the Height, we get a
+       nearly horizontal line with small
+       dips for flat areas. As the Influ-
+       ence of the Slope increases height
+       becomes less important, and the
+       texture tends to cling to to flat
+       areas.
+
+       [IMAGE]
+
+---------------------------------------------
+
+_END
+
+
+_DIALOG_TEMPLATE
+1,	"Landscape", 132,	1,	7,	235, 96, 1044, 928
+   1,	2,	"Ok",		940, 117, 1020, 154, 0
+   2,	2,	"Cancel",	850, 117, 930, 154, 0
+   3,	2,	"Insert",	547, 162, 617, 187, 0
+   4,	2,	"Next",		493, 126, 534, 151, 0
+   5,	2,	"Prev",		439, 126, 483, 151, 0
+   6,	2,	"Remove",	547, 126, 617, 151, 0
+   7,	5,	"1",		439, 159, 505, 189, 2, -99999, 999999, 0
+   8,	11,	"tuning",	505, 159, 533, 189, 7, 0, 1, 10, 100
+   9,	2,	"Save",		742, 117, 822, 154, 0
+   10,	2,	"Help",		652, 117, 732, 154, 0
+   11,	5,	"",		652, 171, 1020, 201, 0, MIN, MAX, 0
+   12,	0,	"User Comment",	652, 207, 760, 222, 0
+   13,	6,	"graf",		427, 117, 627, 207, 1
+   14,	0,	" Keyframe ",	439, 201, 529, 216, 0
+   15,	2,	"Preview",	271, 159, 403, 184, 0
+   16,	3,	"Auto-refresh",	274, 130, 402, 145, 0
+   17,	6,	"graf",		258, 117, 414, 207, 1
+   18,	0,	" Shaderball ",	271, 201, 379, 216, 0
+   19,	0,	"L U M E",	607, 912, 670, 927, 0
+   20,	5,	"0.000",	337, 760, 396, 790, 3, 0, 1, 22
+   21,	11,	"tuning",	397, 760, 425, 790, 20, 22, 0.01, 0.05, 0.1
+   22,	9,	"slider",	426, 760, 579, 790, 20, 0, 1, 1
+   23,	0,	"Blur:",	281, 768, 326, 783, 0
+   24,	4,	"None",		676, 856, 766, 871, 1
+   25,	4,	"Red",		676, 832, 766, 847, 0
+   26,	4,	"Yellow",	772, 856, 862, 871, 0
+   27,	4,	"Green",	772, 832, 862, 847, 0
+   28,	4,	"Blue",		876, 856, 966, 871, 0
+   29,	4,	"Violet",	876, 832, 966, 847, 0
+   30,	3,	"Active",	270, 685, 344, 700, 0
+   31,	0,	"Influence:",	380, 689, 470, 704, 0
+   32,	5,	"0.50",		476, 681, 525, 711, 3, 0, 1, 34
+   33,	11,	"tuning",	526, 681, 554, 711, 32, 34, 0.01, 0.05, 0.1
+   34,	9,	"slider",	555, 681, 605, 711, 32, 0, 1, 1
+   35,	3,	"Alpha",	271, 641, 336, 656, 1
+   36,	3,	"Red",		367, 641, 414, 656, 0
+   37,	3,	"Green",	439, 641, 504, 656, 0
+   38,	3,	"Blue",		535, 641, 591, 656, 0
+   39,	0,	"Height:",	303, 517, 366, 532, 0
+   40,	3,	"Active",	273, 561, 347, 576, 0
+   41,	0,	"Influence:",	383, 565, 473, 580, 0
+   42,	5,	"0.50",		479, 557, 528, 587, 3, 0, 1, 44
+   43,	11,	"tuning",	529, 557, 557, 587, 42, 44, 0.01, 0.05, 0.1
+   44,	9,	"slider",	558, 557, 608, 587, 42, 0, 1, 1
+   45,	5,	"0.000",	368, 507, 427, 537, 1, -10, 10, 47
+   46,	11,	"tuning",	428, 507, 456, 537, 45, 47, 1, 2, 3
+   47,	9,	"slider",	457, 507, 610, 537, 45, -10, 10, 1
+   48,	0,	"Spread:",	303, 485, 366, 500, 0
+   49,	5,	"1.000",	368, 475, 427, 505, 3, 0, 10, 51
+   50,	11,	"tuning",	428, 475, 456, 505, 49, 51, 1, 2, 3
+   51,	9,	"slider",	457, 475, 610, 505, 49, 0, 10, 1
+   52,	0,	"Angle:",	301, 316, 355, 331, 0
+   53,	3,	"Active",	271, 360, 345, 375, 0
+   54,	0,	"Influence:",	381, 364, 471, 379, 0
+   55,	5,	"0.50",		477, 356, 526, 386, 3, 0, 1, 57
+   56,	11,	"tuning",	527, 356, 555, 386, 55, 57, 0.01, 0.05, 0.1
+   57,	9,	"slider",	556, 356, 606, 386, 55, 0, 1, 1
+   58,	5,	"90.00",	366, 306, 425, 336, 1, 0, 180, 60
+   59,	11,	"tuning",	426, 306, 454, 336, 58, 60, 1, 2, 3
+   60,	9,	"slider",	455, 306, 608, 336, 58, 0, 180, 1
+   61,	0,	"Scale:",	667, 601, 721, 616, 0
+   62,	3,	"Active",	666, 645, 740, 660, 0
+   63,	0,	"Influence:",	776, 649, 866, 664, 0
+   64,	5,	"0.50",		872, 641, 921, 671, 3, 0, 1, 66
+   65,	11,	"tuning",	922, 641, 950, 671, 64, 66, 0.01, 0.05, 0.1
+   66,	9,	"slider",	951, 641, 1001, 671, 64, 0, 1, 1
+   67,	5,	"2.000",	761, 591, 820, 621, 3, 0, 10, 69
+   68,	11,	"tuning",	821, 591, 849, 621, 67, 69, 1, 2, 3
+   69,	9,	"slider",	850, 591, 1003, 621, 67, 0, 10, 1
+   70,	0,	"Roughness:",	667, 569, 757, 584, 0
+   71,	5,	"0.500",	761, 559, 820, 589, 3, 0, 1, 73
+   72,	11,	"tuning",	821, 559, 849, 589, 71, 73, 1, 2, 3
+   73,	9,	"slider",	850, 559, 1003, 589, 71, 0, 1, 1
+   74,	5,	"0.000",	761, 527, 820, 557, 1, -1, 1, 76
+   75,	11,	"tuning",	821, 527, 849, 557, 74, 76, 1, 2, 3
+   76,	9,	"slider",	850, 527, 1003, 557, 74, -1, 1, 1
+   77,	5,	"1.000",	761, 495, 820, 525, 3, 0, 3, 79
+   78,	11,	"tuning",	821, 495, 849, 525, 77, 79, 1, 2, 3
+   79,	9,	"slider",	850, 495, 1003, 525, 77, 0, 3, 1
+   80,	0,	"Coverage:",	667, 537, 748, 552, 0
+   81,	0,	"Y-Scale:",	667, 507, 739, 522, 0
+   82,	0,	"Scale:",	667, 369, 721, 384, 0
+   83,	3,	"Active",	666, 413, 740, 428, 0
+   84,	0,	"Influence:",	776, 417, 866, 432, 0
+   85,	5,	"0.50",		872, 409, 921, 439, 3, 0, 1, 87
+   86,	11,	"tuning",	922, 409, 950, 439, 85, 87, 0.01, 0.05, 0.1
+   87,	9,	"slider",	951, 409, 1001, 439, 85, 0, 1, 1
+   88,	5,	"20.0",		761, 359, 820, 389, 3, 0, 90, 90
+   89,	11,	"tuning",	821, 359, 849, 389, 88, 90, 1, 2, 3
+   90,	9,	"slider",	850, 359, 1003, 389, 88, 0, 90, 1
+   91,	0,	"Roughness:",	667, 336, 757, 351, 0
+   92,	5,	"0.500",	761, 327, 820, 357, 3, 0, 1, 94
+   93,	11,	"tuning",	821, 327, 849, 357, 92, 94, 1, 2, 3
+   94,	9,	"slider",	850, 327, 1003, 357, 92, 0, 1, 1
+   95,	5,	"0.000",	761, 295, 820, 325, 3, -1, 1, 97
+   96,	11,	"tuning",	821, 295, 849, 325, 95, 97, 1, 2, 3
+   97,	9,	"slider",	850, 295, 1003, 325, 95, -1, 1, 1
+   98,	5,	"1.000",	761, 263, 820, 293, 3, 0, 3, 100
+   99,	11,	"tuning",	821, 263, 849, 293, 98, 100, 1, 2, 3
+   100,	9,	"slider",	850, 263, 1003, 293, 98, 0, 3, 1
+   101,	0,	"Coverage:",	667, 305, 748, 320, 0
+   102,	0,	"Y-Scale:",	667, 272, 739, 287, 0
+   103,	6,	"graf",		652, 471, 1020, 683, 1
+   104,	6,	"graf",		652, 243, 1020, 450, 1
+   105,	0,	" Shape Based Noise ",663, 446, 834, 461, 0
+   106,	0,	" Position Based Noise ",664, 680, 862, 695, 0
+   107,	4,	"Object Center",297, 831, 387, 846, 1
+   108,	4,	"World Center",	297, 806, 387, 821, 0
+   109,	0,	"Relative to:",	277, 860, 385, 875, 0
+   110,	3,	"Upside down",	302, 442, 421, 457, 0
+   111,	3,	"Upside down",	302, 272, 421, 287, 0
+   112,	6,	"graf",		258, 420, 627, 600, 1
+   113,	0,	" Height Effect ",268, 595, 403, 610, 0
+   114,	6,	"graf",		258, 746, 627, 891, 1
+   115,	0,	" Overall ",	269, 887, 350, 902, 0
+   116,	6,	"graf",		258, 243, 627, 398, 1
+   117,	0,	" Slope Effect ",270, 393, 396, 408, 0
+   118,	6,	"graf",		258, 627, 627, 721, 1
+   119,	0,	" Image Effect ",267, 717, 393, 732, 0
+   120,	6,	"graf",		652, 817, 1020, 891, 1
+   121,	0,	" Preview Color ",662, 887, 797, 902, 0
+   122,	3,	"Active",	664, 760, 738, 775, 0
+   123,	0,	"Influence:",	774, 764, 864, 779, 0
+   124,	5,	"0.50",		870, 756, 919, 786, 3, 0, 1, 126
+   125,	11,	"tuning",	920, 756, 948, 786, 124, 126, 0.01, 0.05, 0.1
+   126,	9,	"slider",	949, 756, 999, 786, 124, 0, 1, 1
+   127,	0,	"Thickness:",	665, 726, 755, 741, 0
+   128,	5,	"0.250",	757, 717, 816, 747, 3, 0, 2, 130
+   129,	11,	"tuning",	817, 717, 845, 747, 128, 130, 1, 2, 3
+   130,	9,	"slider",	846, 717, 999, 747, 128, 0, 2, 1
+   131,	6,	"graf",		652, 704, 1020, 796, 1
+   132,	0,	" Stain Effect ",666, 791, 792, 806, 0
+
+_SYMBOLS
+  REFRESH    15
+  AUTOREFRESH    16
+  blur    20
+  previewcolor_none    24
+  previewcolor_red    25
+  previewcolor_yellow    26
+  previewcolor_green    27
+  previewcolor_blue    28
+  previewcolor_violet    29
+  image_on    30
+  image_influence    32
+  image_alpha_on    35
+  image_red_on    36
+  image_green_on    37
+  image_blue_on    38
+  height_on    40
+  height_influence    42
+  height_height    45
+  height_spread    49
+  slope_on    53
+  slope_influence    55
+  slope_angle    58
+  positional_on    62
+  positional_influence    64
+  positional_size    67
+  positional_splotch    71
+  positional_coverage    74
+  positional_yscale    77
+  surface_on    83
+  surface_influence    85
+  surface_size    88
+  surface_splotch    92
+  surface_coverage    95
+  surface_yscale    98
+  relative_object_on    107
+  relative_world_on    108
+  height_upsidedown    110
+  slope_upsidedown    111
+  stain_on    122
+  stain_influence    124
+  stain_thickness    128
+_END
+
+_EXCLUSIVE
+24 25 26 27 28 29
+107 108
+_END
+
+
+
+_DATA
+dum1a 0.0
+dum1b 0.0
+dum2a 0.0
+dum2b 0.0
+_END
+
+
+_SHADER_PREVIEWER
+PLANE
+  ZPOS -80
+  SIZE 20 20
+  CHECKER
+    SQUARE1 0.8 0 0
+    SQUARE2 0.8 0 0
+    LINE 0.8 0.8 0.8
+    SIZE_SQUARE1 0.125
+    SIZE_SQUARE2 0.125
+    DIFFUSE 0 0 0
+SPHERE
+  ZPOS -20
+  SIZE 5
+WINDOW
+  POS 10 10
+RENDER
+  MIN_SAMPLES -5
+  MAX_SAMPLES 0
+
+_END
+
+
+_SHADER_LINKS
+LINK, Landscape.so
+_END
+
+_SHADER_DECLARE
+declare,	Landscape
+
+scalar,		blur
+
+boolean,	relative_object_on
+boolean,	relative_world_on
+
+boolean,	previewcolor_none
+boolean,	previewcolor_red
+boolean,	previewcolor_yellow
+boolean,	previewcolor_green
+boolean,	previewcolor_blue
+boolean,	previewcolor_violet
+
+boolean,	image_on
+scalar,		image_influence
+boolean,	image_alpha_on
+boolean,	image_red_on
+boolean,	image_green_on
+boolean,	image_blue_on
+
+boolean,	height_on
+scalar,		height_influence
+boolean,	height_upsidedown
+scalar,		height_height
+scalar,		height_spread
+
+boolean,	slope_on
+scalar,		slope_influence
+boolean,	slope_upsidedown
+scalar,		slope_angle
+
+boolean,	positional_on
+scalar,		positional_influence
+scalar,		positional_size
+scalar,		positional_splotch
+scalar,		positional_coverage
+scalar,		positional_yscale
+
+boolean,	surface_on
+scalar,		surface_influence
+scalar,		surface_size
+scalar,		surface_splotch
+scalar,		surface_coverage
+scalar,		surface_yscale
+
+boolean,	stain_on
+scalar,		stain_influence
+scalar,		stain_thickness
+
+scalar,		dum1a
+scalar,		dum1b
+scalar,		dum2a
+scalar,		dum2b
+_END

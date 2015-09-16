@@ -1,0 +1,57 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 ON
+NAME	"Facade"
+_END
+
+
+_DESCRIPTION
+include(Facade.doc)
+_END
+
+
+_DIALOG_TEMPLATE
+include(Facade.dg)
+
+
+_DATA
+_END
+
+
+_SHADER_PREVIEWER
+PLANE
+  ZPOS -80
+  SIZE 20 20
+  CHECKER
+    SQUARE1 0.8 0 0
+    SQUARE2 0.8 0 0
+    LINE 0.8 0.8 0.8
+    SIZE_SQUARE1 0.125
+    SIZE_SQUARE2 0.125
+    DIFFUSE 0 0 0
+SPHERE
+  ZPOS -500
+  SIZE 499
+    MATERIAL
+      TRANSP 1
+WINDOW
+  POS 10 10
+RENDER
+  MIN_SAMPLES -5
+  MAX_SAMPLES 0
+
+_END
+
+
+_SHADER_LINKS
+LINK, Facade.so
+_END
+
+_SHADER_DECLARE
+declare,	Facade
+
+scalar,  	size
+boolean, 	rotation_cylindrical_on
+boolean, 	rotation_spherical_on
+
+_END

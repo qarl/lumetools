@@ -1,0 +1,335 @@
+
+
+Landscape                                lume
+---------------------------------------------
+
+
+       Landscape is a highly versatile
+       shader that helps to map textures
+       to terrain and other types of com-
+       plex models in useful and natural
+       ways, through attributes such as
+       slope, height, image, and noise
+       functions. For example, on a single
+       piece of terrain geometry it could
+       be used to create dusty pile-ups on
+       plateau surfaces, exposed rock
+       faces in steeper cliff-like areas,
+       and water stains where the ground
+       meets the sea. Especially useful in
+       situations where the size or shape
+       of an object makes handmade tex-
+       tures impractical.
+
+       Landscape works by dynamically re-
+       placing a texture's alpha channel -
+       making its blending more or less
+       opaque according to the effects of
+       the parameter settings.
+
+
+
+  Procedure
+
+        In the texture dialogue box select
+        a texture image which has an al-
+        pha-channel.
+
+        Select Alpha Channel Mask for the
+        texture's blending.
+
+        Select the Landscape shader as the
+        texture shader, and edit its pa-
+        rameters.
+
+
+
+  Effects
+
+       The artist controls Landscape by
+       applying one or more different
+       ``effects''. One such effect,
+       Slope, piles a texture on flat sur-
+       faces, like snow piling on a
+       plateau. Height behaves like a wa-
+       terline. Two different noise gener-
+       ators, Shape Based and Position
+       Based, provide natural-looking ir-
+       regularities. Stain allows the
+       artist to confine a texture with
+       the boundaries of another object.
+       Image allows the texture's own col-
+       or or alpha-channel to influence
+       its blending.
+
+       [IMAGE]
+
+       Landscape's real strength comes
+       from allowing the artist to mix
+       these effects. An example is mixing
+       Slope and Height to give snow on
+       high peaks. We'll explore mixing in
+       detail later.
+
+
+
+  Parameters
+
+
+
+       Overall
+
+       Relative to controls whether the
+       positions and angles are measured
+       from the World Center or the Object
+       Center. World Center is good in
+       situations where several different
+       objects need a texture to line up
+       across all the objects. Object Cen-
+       ter is useful when an object needs
+       to move, and the texture must move
+       with it. Also, by rotating the cen-
+       ter in Object Center mode, effects
+       can be applied at an angle other
+       than the horizontal.
+
+       Blur controls the sharpness of the
+       border between the opaque and
+       transparent extremes of the alpha-
+       channel. A value of 0 gives a sharp
+       line, a value of 1 gives a very
+       blurred line.
+
+
+
+       Preview Color
+
+       When mixing several Landscape lay-
+       ers, it can be to difficult see
+       where one texture ends and another
+       begins, especially if the textures
+       are very similar. Preview Color al-
+       lows the artist to temporarily re-
+       place the texture with a bright
+       solid color, so that the borders of
+       the effects can be clearly seen.
+
+
+
+       Slope Effect
+
+       The Slope Effect acts like snow
+       piling on a plateau. Flatter areas
+       receive an opaque alpha-channel
+       while steep areas receive a trans-
+       parent alpha-channel.
+
+       Angle specifies where the cutoff
+       line is, (i.e. how steep the slope
+       is before the snow begins falling
+       off) measured in degrees from the
+       XZ plane.
+
+       Upside Down reverses the direction
+       of the effect, so that the alpha-
+       channel is opaque in steep areas
+       and and transparent in flat areas.
+
+       Influence is used for mixing, see
+       below.
+
+
+
+       Height Effect
+
+       The Height Effect creates a hori-
+       zontal line across the object; ar-
+       eas above the line receive an
+       opaque alpha-channel, areas below
+       receive a transparent alpha-chan-
+       nel.
+
+       Height specifies how high the line
+       should be, expressed in SoftImage
+       units; the line is measured either
+       from the object's center or from
+       the world center, according to the
+       settings in Overall: Relative to
+       (see above).
+
+       Spread tells how wide the area of
+       effect should be, for blurring and
+       mixing with other effects.
+
+       Upside Down reverses the direction,
+       so that the alpha-channel is opaque
+       below the height-line and transpar-
+       ent above it.
+
+       Influence is used for mixing, see
+       below.
+
+
+
+       Position Based Noise and Shape
+       Based Noise
+
+       The two noise generators provide a
+       way to insert randomness into the
+       landscape. Position Based Noise is
+       the noise generator most people are
+       familiar with; it is based upon the
+       surface's absolute position in
+       space. Unfortunately, the noise
+       isn't effected by the shape of the
+       surface, and so can sometimes pro-
+       duce an unnatural pattern.
+
+       Shape Based Noise helps alleviate
+       this problem by using the shape ex-
+       clusively as the seed for the
+       noise. This means that as the sur-
+       face dips and curves, Shape Based
+       Noise will give variations that re-
+       flect the change. The drawback
+       comes when two objects have the
+       same shape, they will have the same
+       noise; or when a surface is flat,
+       it will receive no noise.
+
+       [IMAGE]
+
+       A good effect can often be achieved
+       by mixing Position Based and Shape
+       Based noises.
+
+       Scale controls the size of the
+       largest clumps of noise.  For Posi-
+       tion Based Noise, Scale is measured
+       in SoftImage units.  For Shape
+       Based Noise, Scale is measured in
+       degrees.
+
+       [IMAGE]
+
+       Roughness controls how jagged the
+       edge of the noise is. A value of 0
+       gives a smooth edge, while a value
+       of 1 gives a rough, speckled edge.
+
+       [IMAGE]
+
+       Coverage controls what percentage
+       of the overall alpha-channel is
+       opaque. A value of 0 gives 50%
+       opaque areas, 50% transparent ar-
+       eas. Smaller values give less
+       opaque ares, larger values give
+       more opaque areas.
+
+       [IMAGE]
+
+       Y-Scale lets the artist stretch the
+       noise in the Y direction. A value
+       less than 1 compresses the noise in
+       the Y direction, giving an appear-
+       ance similar to sedimentary rock; a
+       value greater than 1 stretches the
+       noise in the Y direction, giving a
+       appearance similar to dripping
+       stains.
+
+       [IMAGE]
+
+       Influence is used for mixing, see
+       below.
+
+
+
+       Stain Effect
+
+       The Stain Effect works in conjunc-
+       tion with the Stain shader. Any
+       area of the texture contained by a
+       staining object will receive an
+       opaque alpha-channel, while areas
+       outside the staining object will
+       receive a transparent alpha-chan-
+       nel.
+
+       Thickness is used to control how
+       far a point must lie within the
+       staining object before the alpha-
+       channel becomes opaque.
+
+            WARNING: This thickness is de-
+            termined by the viewing angle.
+            Large values for the thickness
+            can cause the texturing to
+            change as the object or camera
+            change their relative position
+            in the scene; this can be par-
+            ticularly undesirable in ani-
+            mation sequences.
+
+       Influence is used for mixing, see
+       below.
+
+
+
+       Image Effect
+
+       The Image Effect uses the texture
+       itself to effect the alpha channel.
+       Any combination of the red, green,
+       blue, or alpha channels can be
+       used. Values in the image above 0.5
+       will give an opaque alpha-channel,
+       while values below 0.5 give a
+       transparent alpha-channel.
+
+       Influence is used for mixing, see
+       below.
+
+
+
+       Mixing Effects
+
+       A wide variety of patterns can be
+       achieved by mixing these effects
+       together. Mixing is accomplished by
+       adjusting the Influence slider in
+       each of the active effects. An ef-
+       fect with a high Influence value
+       will tend to dominate the other ef-
+       fects; an effect with a low Influ-
+       ence value will only subtly modify
+       the other effects.  When specifying
+       Influences, the ratio of the influ-
+       ences is all that is important.
+
+       For example, by mixing Height with
+       a small amount of Position Based
+       Noise, we get a roughened Height
+       line. But if we begin turning up
+       the Influence of the noise, the
+       line breaks up. At high enough val-
+       ues, we can't distinguish the line;
+       all we can tell is that the noise
+       is thicker at the top.
+
+       [IMAGE]
+
+       Another example is the mixture of
+       Height and Slope. With a high In-
+       fluence for the Height, we get a
+       nearly horizontal line with small
+       dips for flat areas. As the Influ-
+       ence of the Slope increases height
+       becomes less important, and the
+       texture tends to cling to to flat
+       areas.
+
+       [IMAGE]
+
+---------------------------------------------

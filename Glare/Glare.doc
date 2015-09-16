@@ -1,0 +1,156 @@
+
+
+Glare                                    lume
+---------------------------------------------
+
+
+       Bright lighting in CG images is of-
+       ten difficult to accomplish.  Many
+       times bright areas appear as solid
+       white splotches with unrealisticly
+       hard edges. Glare comes to the res-
+       cue in these situations by giving a
+       halo around extra bright areas.
+
+       [IMAGE]
+
+       In particular, Glare is extremely
+       helpful when an image has areas of
+       ``over-exposure.'' Over-exposure
+       occurs when color values move be-
+       yond the solid white value of 1.
+       While the color white (R:1.0,
+       G:1.0, B:1.0) may look the same as
+       the color extra-bright-white
+       (R:2.0, G:2.0, B:2.0), Glare treats
+       them differently, giving larger ha-
+       los to brighter objects.
+
+       It should be noted that Glare gives
+       realistic glares and flares from
+       any bright source - not just
+       lights. For example, it will create
+       glares off of shiny metals, flares
+       from reflections on a water surface
+       or glass object, etc.
+
+
+
+  Procedure
+
+        Create a scene containing bright
+        objects.
+
+        In the render dialogue box, select
+        mental ray as the rendering type.
+
+        Click on Options, and in the op-
+        tions dialogue box select Glare as
+        the output shader.
+
+        Edit Glare's parameters.
+
+
+
+  Parameters
+
+       Glare can begin to slow down ren-
+       dering times when the scene has
+       large bright areas. Quality lets
+       the artist set the tradeoff between
+       detail and speed. Lower Quality
+       settings will cause Glare to run
+       more quickly, but may cause the
+       glare halo to be ``boxy,'' whereas
+       Higher Quality will give a better
+       overall effect, but will of course
+       take longer. Generally, a mid-level
+       setting is appropriate for most
+       scenes.
+
+       Spread controls how sensitive Glare
+       is to bright objects. Lower values
+       for Spread will cause smaller glare
+       halos while higher values will
+       cause larger glare halos. Very high
+       values will cause dark objects to
+       have halos. (Try not to abuse the
+       Spread parameter. The best way to
+       increase an object's halo is to in-
+       crease its brightness, not to in-
+       crease the Spread.)
+
+       Overlay Only mode will cause Glare
+       to produce a glare ``overlay''. The
+       overlay is an image of the glare
+       effect only; the original underly-
+       ing image is removed. This mode is
+       useful when render speed is criti-
+       cal, so that Glare can be run on a
+       lower resolution image to produce
+       an overlay, which can then be com-
+       posited with a higher resolution
+       underlying image.
+
+       Verbose Mode turns on verbose out-
+       put, so that the progress of Glare
+       can be monitored.
+
+
+
+       Streaks
+
+       When active, the Streaks feature
+       allows you to specify a .pic file
+       that will be used to create a
+       `streaking' effect, as seen when
+       looking at bright images through
+       glass or, in photographs, through a
+       camera lens.
+
+       Image is the streak template that
+       Glare uses to draw streaks. Two ex-
+       ample images are provided: ``Glare-
+       Eye'' models the streaks caused by
+       the human eye, and ``Glare-Star''
+       models the streaks cause by a star-
+       filter camera lens.
+
+       [IMAGE]
+
+       [IMAGE]
+
+       Scale controls how big the streaks
+       image should be.  A value of 1
+       means that one pixel in the streaks
+       image should cover one pixel in the
+       output image. Smaller values will
+       make the streaks image smaller,
+       larger values make the streaks im-
+       age larger.
+
+       Contrast controls the variation in
+       brightness between the streaks and
+       the darker region between the
+       streaks. A value of 0 causes the
+       streaks and dark regions to have
+       the same brightness; a value of 1
+       causes the streaks to have the max-
+       imum brightness and the dark re-
+       gions to be black.
+
+       [IMAGE]
+
+
+
+       Region
+
+       Region sets where the glare takes
+       effect. The two choices are Entire
+       Image, causing all of the image to
+       be glared, or Specific Objects,
+       whereby you can select which ob-
+       jects will receive the glare ef-
+       fect.
+
+---------------------------------------------

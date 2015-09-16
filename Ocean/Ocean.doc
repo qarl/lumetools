@@ -1,0 +1,156 @@
+
+
+Ocean                                    lume
+---------------------------------------------
+
+
+       The Ocean shader simulates realis-
+       tic waves over a large body of wa-
+       ter. The artist can control the
+       look and feel of the ocean by ad-
+       justing the waves' height, rough-
+       ness, speed, direction, etc. Ocean
+       can even create a looping anima-
+       tion, with the number of frames in
+       the loop specified by the user.
+
+
+
+  Procedure
+
+        Create a large grid.
+
+        In the texture dialogue box, se-
+        lect Ocean as the texture shader.
+
+        Assign a dummy image to the tex-
+        ture.
+
+        Edit Ocean's parameters.
+
+
+
+  Parameters
+
+
+
+       Wave Size
+
+       The Wave Size box controls the
+       waves' basic size and shape.
+       Largest sets the size of the
+       largest waves in the ocean, Small-
+       est sets the size of the smallest
+       waves in the ocean, while Number
+       Between sets how many wave sizes
+       are between Largest and Smallest.
+       Increasing Number Between will give
+       a rougher look to the ocean.
+
+       Steepness gives another control on
+       the roughness of the ocean: smaller
+       values of Steepness will give a
+       calm, flatter ocean, while larger
+       values give a rougher, more active
+       ocean.
+
+       [IMAGE]
+
+
+
+       Wave Position
+
+       Wave positions can be relative to
+       World Center, so that two adjoining
+       grids wave patterns will be
+       aligned; or Object Center, so that
+       as the object moves, the wave pat-
+       terns will move with it.
+
+       Direction controls the overall
+       movement of the waves; either a Di-
+       rectionless choppy ocean, or a Di-
+       rected rolling-waves ocean.
+
+
+
+       Wave Animation
+
+       For animation, two controls are
+       available. Wave Speed controls the
+       movement rate of the waves. The de-
+       fault value of 1 is a good choice
+       for a scene where one SoftImage
+       unit is equivalent to one foot, and
+       where the animation is at 30 fps.
+
+       Loop Animation will force the ocean
+       into a looping animation. Frames
+       controls the number of frames in
+       the loop. Be warned, smaller num-
+       bers create a less realistic ocean.
+
+
+
+       Shape Method
+
+       Ocean creates its effect in one of
+       two ways. As a Bump, Ocean creates
+       the illusion of a rough surface
+       without actually changing the geom-
+       etry, similar to a bump map. Note
+       that Ocean's bumping effect is in-
+       dependent of the texture settings,
+       so the Roughness parameter in the
+       texture dialogue box should be set
+       to 0.
+
+       Ocean is usually best kept in Bump
+       mode, since it gives a very nice
+       wave effect without requiring addi-
+       tional geometry, and therefore does
+       not inordinately slow down render-
+       ing times.
+
+       In Displacement mode, Ocean creates
+       a greyscale image for the shape of
+       the ocean, with which it displaces
+       the actual geometry of the water
+       grid, using the displacement fea-
+       ture of mental ray. When using Dis-
+       placement, the Displacement parame-
+       ter in the texture dialogue box
+       should be enabled, and the rough-
+       ness should be set to 1.
+
+       As with all displacement mapping,
+       the object in question must have
+       enough geometry in order to proper-
+       ly resolve the shape of the dis-
+       placement map; this usually results
+       in extremely slowed rendering
+       times. If you wish to use displace-
+       ment, a good compromise can be
+       achieved by using Ocean twice: once
+       as a Bump for smaller waves, and
+       once as a Displacement for larger
+       waves.
+
+
+
+       Flats
+
+       Real oceans or lakes have differing
+       areas of roughness: some regions
+       can be fairly smooth, while other
+       areas are rough - the variations
+       caused by the effects of wind flow.
+       The Flats effect simulates these
+       differing areas. Size controls the
+       size of the area, while Variation
+       controls how different the areas
+       can be: lower values cause less
+       variation, higher values cause
+       greater variation.
+
+---------------------------------------------

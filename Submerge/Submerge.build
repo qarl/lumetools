@@ -1,0 +1,57 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 OFF
+NAME	"Submerge"
+_END
+
+
+_DESCRIPTION
+include(Submerge.doc)
+_END
+
+
+_DIALOG_TEMPLATE
+include(Submerge.dg)
+
+
+_DATA
+_END
+
+_SHADER_PREVIEWER
+PLANE
+  ZPOS -80
+  SIZE 20 20
+  CHECKER
+    SQUARE1 1 0 0
+    SQUARE2 1 0 0
+    LINE 1 1 1
+    SIZE_SQUARE1 0.125
+    SIZE_SQUARE2 0.125
+    DIFFUSE 0 0 0
+SPHERE
+  ZPOS -10000
+  SIZE 9999
+    MATERIAL
+      TRANSP 1
+WINDOW
+  POS 10 10
+RENDER
+  MIN_SAMPLES -5
+  MAX_SAMPLES 0
+
+_END
+
+
+_SHADER_LINKS
+LINK, Submerge.so
+_END
+
+_SHADER_DECLARE
+declare,	Submerge
+
+rgba,		water_color
+scalar,		height
+scalar,		gradation
+scalar,		opacity
+
+_END

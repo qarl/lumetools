@@ -1,0 +1,74 @@
+
+
+Glow                                     lume
+---------------------------------------------
+
+
+       Glow is a material shader designed
+       to simulate an object with internal
+       lighting, as either an overall ef-
+       fect or as specified with a texture
+       map. With Glow you can now create
+       glow maps that respond to light
+       levels and overexposures in a real-
+       istic, photographic manner.
+
+
+
+  Procedure
+
+        In the object's Material dialogue
+        box, select Glow as the material
+        shader.
+
+        Edit Glow's parameters.
+
+
+
+  Parameters
+
+       Brightness sets the intensity of
+       the internal light.  Lower values
+       show little glow, higher values
+       show a bright glow.
+
+       [IMAGE]
+
+
+
+       Color
+
+       The Color settings provide the
+       artist with direct control over the
+       color of the internal light. The
+       Solid setting will cause the entire
+       surface to be lit with a constantly
+       colored light, as set in the RGB
+       boxes. Texture will tell Glow to
+       use one of the object's textures as
+       a glow map, as specified numerical-
+       ly in the ``#'' box. (For example,
+       a `1' will tell it to use the first
+       texture on the object, while `5'
+       would tell it to use the fifth tex-
+       ture.)
+
+       [IMAGE]
+
+
+
+       Mix
+
+       The Mix settings control which of
+       two glow techniques to use. Mix
+       With Underlying tells Glow to use
+       the light and dark areas of the un-
+       derlying diffuse texture to vary
+       the brightness, while Paint Over
+       tells Glow to add the glow directly
+       over the existing color, a more
+       brute force glow technique.
+
+       [IMAGE]
+
+---------------------------------------------

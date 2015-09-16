@@ -1,0 +1,34 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 OFF
+NAME	"BumpCapture"
+_END
+
+
+_DESCRIPTION
+include(BumpCapture.doc)
+_END
+
+
+_DIALOG_TEMPLATE
+include(BumpCapture.dg)
+
+
+_DATA
+_END
+
+_SHADER_OPTIONS
+DEPTH ON
+_END
+
+
+_SHADER_LINKS
+LINK, BumpCapture.so
+_END
+
+_SHADER_DECLARE
+declare,	BumpCapture
+
+boolean, channel_rgb_on
+boolean, channel_alpha_on
+_END

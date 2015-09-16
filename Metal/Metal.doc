@@ -1,0 +1,87 @@
+
+
+Metal                                    lume
+---------------------------------------------
+
+
+       The Metal shader helps to create a
+       truly realistic metal by modelling
+       a metallic object's reflective
+       properties, including color filter-
+       ing of the reflected rays, and
+       blurring of the reflected images.
+
+
+
+  Procedure
+
+        In the Material dialogue box, se-
+        lect Metal as the material shader.
+
+        Edit Metal's parameters.
+
+
+
+  Parameters
+
+
+
+       Reflectivity Tint
+
+       Tinting is the coloration that met-
+       al gives light as it reflects from
+       its surface. It is a significantly
+       different coloring technique than
+       the diffuse coloring of SoftImage:
+       colors are filtered instead of
+       mixed so that blacks stay black,
+       and saturated colors remain satu-
+       rated (although possibly filtered
+       to a new hue).
+
+       [IMAGE]
+
+       Solid Color specifies that the en-
+       tire object should be tinted with
+       the same color, which is set with
+       the color sliders below.
+
+       From Specular specifies that the
+       objects specular color (taken ei-
+       ther from its material or from a
+       texture map) should be used as the
+       tint color.
+
+
+
+       Reflectivity Blurring
+
+       Blurring can be used to blur the
+       reflections seen on the surface of
+       the metal. The blurring is achieved
+       by shooting multiple rays into a
+       scene, each in a slightly different
+       direction, and then mixing the re-
+       sults. The number of the extra rays
+       determines the quality of the blur:
+       more rays give a better blur but
+       also take longer.
+
+       Samples controls how many extra
+       rays are used. Generally, a larger
+       value will improve the quality of
+       the blur but will also take longer
+       to render.
+
+       Spread controls the spread of the
+       extra rays. A wider angle of spread
+       gives a more blurred image, and
+       narrower angle of spread gives a
+       sharper images. A larger setting
+       for the spread value will require a
+       higher Samples setting to maintain
+       quality.
+
+       [IMAGE]
+
+---------------------------------------------

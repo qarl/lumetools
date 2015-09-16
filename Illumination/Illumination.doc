@@ -1,0 +1,81 @@
+
+
+Illumination                             lume
+---------------------------------------------
+
+
+       The Illumination shader performs a
+       simple but important task: provid-
+       ing a physically accurate lighting
+       model for light sources. This can
+       mean gentle and gradual falloff
+       curves for dim lighting, or bright
+       and overexposed central areas in
+       bright lighting.
+
+       Many times CG artists avoid realis-
+       tic lighting because of its tenden-
+       cy to create areas of overexposure,
+       which often look unnatural due to
+       their hard edges. The Glare shader
+       corrects this problem, creating
+       overexposures that look realistic;
+       by using Illumination in combina-
+       tion with Glare, natural lighting
+       effects can be easily achieved.
+
+
+
+  Procedure
+
+        In the edit-light dialogue box,
+        select Illumination as the light
+        shader.
+
+        Edit Illumination's parameters.
+
+
+
+  Parameters
+
+       Brightness Multiplier allows the
+       artist to turn-up the light's
+       brightness well past 1, likely
+       causing overexposure in some parts
+       of the image.
+
+
+
+       Falloff
+
+       With Falloff the artist can set how
+       he wants the light to behave as it
+       falls off from the source. None and
+       Linear are identical to the SoftIm-
+       age built in light: None tells the
+       light to illuminate all objects
+       with the same brightness regardless
+       of distance, while Linear provides
+       the same linear fall off that a
+       typical SoftImage light uses.
+
+       Realistic uses the r-squared law
+       for fall off. Unlike the Linear
+       falloff, Realistic fall off causes
+       nearby objects to be extremely
+       bright, while at the same time dis-
+       tant objects never quite become
+       completely black.
+
+       Custom let's the artist specify a
+       custom curve for the light falloff.
+       Start specifies the distance at
+       which the light begins to diminish,
+       Mid specifies the distance at which
+       the light is at half intensity, and
+       End specifies the distance at which
+       the light becomes completely black.
+       (See the discussion on Custom
+       Curves at the end of this chapter.)
+
+---------------------------------------------

@@ -1,0 +1,52 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 OFF
+NAME	"Adjustments"
+_END
+
+
+_DESCRIPTION
+include(Adjustments.doc)
+_END
+
+
+_DIALOG_TEMPLATE
+include(Adjustments.dg)
+
+
+_DATA
+_END
+
+_SHADER_OPTIONS
+LABEL ON
+_END
+
+
+_SHADER_LINKS
+LINK, Adjustments.so
+_END
+
+_SHADER_DECLARE
+declare,	Adjustments
+
+scalar,  brightness
+scalar,  contrast
+
+scalar,  hue
+scalar,  saturation
+scalar,  lightness
+
+integer, input_high
+integer, input_low
+scalar,  input_shift
+
+integer, output_high
+integer, output_low
+
+boolean, region_entire_on
+boolean, region_specific_on
+array
+model,   region_specific_objects	tag
+
+_END
+

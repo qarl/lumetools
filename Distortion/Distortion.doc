@@ -1,0 +1,56 @@
+
+
+Distortion                               lume
+---------------------------------------------
+
+
+       In the real world, camera lenses
+       cannot be perfect, and so introduce
+       errors (aberrations) in the images
+       they capture. One of the most no-
+       ticeable errors, called distortion,
+       causes the resulting image to be
+       pulled in or pushed out, so that
+       long straight lines become bowed.
+
+       The Distortion shader applies a
+       physically accurate camera lens
+       distortion to an image. And because
+       Distortion is a lens shader, it can
+       create a severe distortion without
+       causing the stretching problem as-
+       sociated similar post-rendering ef-
+       fects.
+
+
+
+  Procedure
+
+        Choose Camera->Settings.
+
+        Select Distortion as the lens
+        shader.
+
+        Edit its parameters.
+
+
+
+  Parameters
+
+       Amount controls how much the image
+       gets distorted.  Small values will
+       cause only a slight bending, larger
+       values will cause greater bending.
+
+       [IMAGE]
+
+       Type controls whether the distor-
+       tion is inward (Pin Cushion) or
+       outward (Barrel). Barrel is the
+       type of distortion most commonly
+       associated with wide angle camera
+       lenses.
+
+       [IMAGE]
+
+---------------------------------------------

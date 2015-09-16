@@ -1,0 +1,40 @@
+_FILETYPE
+VERSION 1.0
+DEFAULT ON
+NAME "Illumination"
+_END
+
+
+_DESCRIPTION
+include(Illumination.doc)
+_END
+
+
+_DIALOG_TEMPLATE
+include(Illumination.dg)
+
+
+_DATA
+_END
+
+
+_SHADER_LINKS
+LINK, Illumination.so
+_END
+
+_SHADER_DECLARE
+declare,	Illumination
+scalar,		brightness
+
+boolean,	falloff_none_on
+boolean,	falloff_real_on
+
+boolean,	falloff_linear_on
+scalar,		falloff_linear_start
+scalar,		falloff_linear_end
+
+boolean,	falloff_custom_on
+scalar,		falloff_custom_start
+scalar,		falloff_custom_mid
+scalar,		falloff_custom_end
+_END

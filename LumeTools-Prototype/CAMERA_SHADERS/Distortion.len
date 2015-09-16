@@ -1,0 +1,151 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 OFF
+NAME	"Distortion"
+_END
+
+
+_DESCRIPTION
+
+
+Distortion                               lume
+---------------------------------------------
+
+
+       In the real world, camera lenses
+       cannot be perfect, and so introduce
+       errors (aberrations) in the images
+       they capture. One of the most no-
+       ticeable errors, called distortion,
+       causes the resulting image to be
+       pulled in or pushed out, so that
+       long straight lines become bowed.
+
+       The Distortion shader applies a
+       physically accurate camera lens
+       distortion to an image. And because
+       Distortion is a lens shader, it can
+       create a severe distortion without
+       causing the stretching problem as-
+       sociated similar post-rendering ef-
+       fects.
+
+
+
+  Procedure
+
+        Choose Camera->Settings.
+
+        Select Distortion as the lens
+        shader.
+
+        Edit its parameters.
+
+
+
+  Parameters
+
+       Amount controls how much the image
+       gets distorted.  Small values will
+       cause only a slight bending, larger
+       values will cause greater bending.
+
+       [IMAGE]
+
+       Type controls whether the distor-
+       tion is inward (Pin Cushion) or
+       outward (Barrel). Barrel is the
+       type of distortion most commonly
+       associated with wide angle camera
+       lenses.
+
+       [IMAGE]
+
+---------------------------------------------
+
+_END
+
+
+_DIALOG_TEMPLATE
+1,	"Distortion", 27,	1,	7,	439, 287, 841, 734
+   1,	2,	"Ok",		745, 302, 825, 339, 0
+   2,	2,	"Cancel",	655, 302, 735, 339, 0
+   3,	2,	"Insert",	745, 461, 815, 486, 0
+   4,	2,	"Next",		691, 425, 732, 450, 0
+   5,	2,	"Prev",		637, 425, 681, 450, 0
+   6,	2,	"Remove",	745, 425, 815, 450, 0
+   7,	5,	"1",		637, 458, 703, 488, 2, -99999, 999999, 0
+   8,	11,	"tuning",	703, 458, 731, 488, 7, 0, 1, 10, 100
+   9,	2,	"Save",		547, 302, 627, 339, 0
+   10,	2,	"Help",		457, 302, 537, 339, 0
+   11,	5,	"",		457, 356, 825, 386, 0, MIN, MAX, 0
+   12,	0,	"User Comment",	457, 392, 565, 407, 0
+   13,	6,	"graf",		625, 416, 825, 506, 1
+   14,	0,	" Keyframe ",	637, 500, 727, 515, 0
+   15,	2,	"Preview",	469, 458, 601, 483, 0
+   16,	3,	"Auto-refresh",	472, 429, 600, 444, 0
+   17,	6,	"graf",		457, 416, 613, 506, 1
+   18,	0,	" Shaderball ",	469, 500, 577, 515, 0
+   19,	0,	"L U M E",	613, 716, 676, 731, 0
+   20,	0,	"^",		632, 646, 641, 661, 0
+   21,	5,	"1.00",		525, 659, 584, 689, 1, 0, 10, 23
+   22,	11,	"tuning",	585, 659, 613, 689, 21, 23, 0.01, 0.05, 0.1
+   23,	9,	"slider",	614, 659, 826, 689, 21, 0, 10, 0.01
+   24,	0,	"Amount:",	459, 669, 522, 684, 0
+   25,	4,	"Pin-cushion",	524, 551, 614, 566, 0
+   26,	4,	"Barrel",	524, 574, 614, 589, 1
+   27,	0,	"Type:",	458, 604, 503, 619, 0
+
+_SYMBOLS
+  REFRESH    15
+  AUTOREFRESH    16
+  amount    21
+  type_pincushion_on    25
+  type_barrel_on    26
+_END
+
+_EXCLUSIVE
+25 26
+_END
+
+
+
+_DATA
+_END
+
+
+_SHADER_PREVIEWER
+PLANE
+  ZPOS -80
+  SIZE 20 20
+  CHECKER
+    SQUARE1 0.8 0 0
+    SQUARE2 0.8 0 0
+    LINE 0.8 0.8 0.8
+    SIZE_SQUARE1 0.125
+    SIZE_SQUARE2 0.125
+    DIFFUSE 0 0 0
+SPHERE
+  ZPOS -500
+  SIZE 499
+    MATERIAL
+      TRANSP 1
+WINDOW
+  POS 10 10
+RENDER
+  MIN_SAMPLES -5
+  MAX_SAMPLES 0
+
+_END
+
+
+_SHADER_LINKS
+LINK, Distortion.so
+_END
+
+_SHADER_DECLARE
+declare,	Distortion
+boolean,	type_pincushion_on
+boolean,	type_barrel_on
+scalar,		amount
+_END

@@ -1,0 +1,29 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 OFF
+NAME	"WrapAround"
+_END
+
+
+_DESCRIPTION
+include(WrapAround.doc)
+_END
+
+
+_DIALOG_TEMPLATE
+include(WrapAround.dg)
+
+
+_DATA
+dum on
+_END
+
+
+_SHADER_LINKS
+LINK, WrapAround.so
+_END
+
+_SHADER_DECLARE
+declare,	WrapAround
+boolean,	dum
+_END

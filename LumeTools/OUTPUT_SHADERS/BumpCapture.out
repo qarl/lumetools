@@ -1,0 +1,151 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 OFF
+NAME	"BumpCapture"
+_END
+
+
+_DESCRIPTION
+
+
+BumpCapture                              lume
+---------------------------------------------
+
+
+       Bump maps are a powerful technique
+       for creating realistically detailed
+       surfaces; unfortunately an artist
+       has limited tools for creating
+       them. Typically he must use 2D im-
+       age editing software, which doesn't
+       provide all the tools necessary for
+       creating 3D detail.
+
+       BumpCapture comes to the rescue by
+       letting the artist use the power of
+       the SoftImage modeler to create his
+       bump map.  First the artist models
+       his surface as an actual geometric
+       object, and then uses BumpCapture
+       to transform the geometry into a
+       bump map. Once in this form, the
+       bump map can be manipulated in more
+       traditional ways: distorting the
+       bump map, scaling and mixing sever-
+       al bump maps, creating a tiled bump
+       map, etc.
+
+       The image below-right shows the ef-
+       fectiveness of a good bump map.
+       What appears to be a collection of
+       spheres is actually a flat grid.
+       The left image gives the grid its
+       color, the middle image is its bump
+       map - created with BumpCapture, of
+       course.
+
+       [IMAGE]
+
+
+
+  Procedure
+
+       To capture the bump map:
+
+        Create the geometry you wish to
+        capture.
+
+        Switch from a Perspective view to
+        an Ortho view.
+
+        Position the camera to get a most-
+        ly straight-on view of the sur-
+        face.
+
+        Set this window to be the render-
+        ing window. (Click the window's ID
+        letter in the upper left corner.
+        The window border will turn red.)
+
+        In the render dialogue box, select
+        mental ray for the rendering type.
+
+        Turn off antialiasing.
+
+        Click on Options, and in the op-
+        tions dialogue select BumpCapture
+        as the output shader.
+
+        Render.
+
+       To capture the color:
+
+        Repeat steps 1 through 5 above.
+
+        Turn off the BumpCapture shader.
+
+        For each object, in the Material
+        dialogue box choose Constant as
+        the shading model.
+
+        Render.
+
+
+
+  Parameters
+
+       Channel controls whether the bump-
+       map should be sent to the color
+       (RGB) channels, or to the Alpha
+       channel.  In current versions of
+       Mental Ray, sending to the alpha
+       channel can produce incorrect re-
+       sults.
+
+---------------------------------------------
+
+_END
+
+
+_DIALOG_TEMPLATE
+1,	"BumpCapture", 10,	1,	5,	433, 396, 849, 668
+   1,	2,	"Ok",		743, 418, 823, 455, 0
+   2,	2,	"Cancel",	653, 418, 733, 455, 0
+   3,	2,	"Save",		545, 418, 625, 455, 0
+   4,	2,	"Help",		455, 418, 535, 455, 0
+   5,	5,	"",		455, 472, 823, 502, 0, MIN, MAX, 0
+   6,	0,	"User Comment",	455, 508, 563, 523, 0
+   7,	0,	"L U M E",	613, 652, 676, 667, 0
+   8,	0,	"Channel:",	464, 616, 536, 631, 0
+   9,	4,	"RGB",		504, 584, 594, 599, 1
+   10,	4,	"Alpha",	504, 560, 594, 575, 0
+
+_SYMBOLS
+  channel_rgb_on    9
+  channel_alpha_on    10
+_END
+
+_EXCLUSIVE
+9 10
+_END
+
+
+
+_DATA
+_END
+
+_SHADER_OPTIONS
+DEPTH ON
+_END
+
+
+_SHADER_LINKS
+LINK, BumpCapture.so
+_END
+
+_SHADER_DECLARE
+declare,	BumpCapture
+
+boolean, channel_rgb_on
+boolean, channel_alpha_on
+_END

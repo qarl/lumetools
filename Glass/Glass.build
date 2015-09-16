@@ -1,0 +1,83 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 ON
+NAME	"Glass"
+_END
+
+
+_DESCRIPTION
+include(Glass.doc)
+_END
+
+
+_DIALOG_TEMPLATE
+include(Glass.dg)
+
+
+_DATA
+_END
+
+
+_SHADER_LINKS
+LINK, Glass.so
+_END
+
+_SHADER_PREVIEWER
+PLANE
+  ZPOS -100
+  SIZE 20 20
+  CHECKER
+    SQUARE1 0.8 0 0
+    SQUARE2 0.8 0 0
+    LINE 0.8 0.8 0.8
+    SIZE_SQUARE1 0.125
+    SIZE_SQUARE2 0.125
+    DIFFUSE 0 0 0
+SPHERE
+  ZPOS -20
+  SIZE 5
+WINDOW
+  POS 10 10
+RENDER
+  MIN_SAMPLES -5
+  MAX_SAMPLES 0
+_END
+
+
+_SHADER_DECLARE
+declare,	Glass
+
+boolean,	tint_on
+boolean,	tint_diffuse_on
+boolean,	tint_solid_on
+rgba,		tint_solid_color
+
+boolean,	tblur_on
+scalar,		tblur_spread
+integer,	tblur_samples
+
+boolean,	rblur_on
+scalar,		rblur_spread
+integer,	rblur_samples
+
+boolean,	tedge_none_on
+boolean,	tedge_fresnel_on
+boolean,	tedge_custom_on
+scalar,		tedge_custom_middle
+scalar,		tedge_custom_edge
+scalar,		tedge_custom_shift
+
+boolean,	sedge_none_on
+boolean,	sedge_custom_on
+scalar,		sedge_custom_middle
+scalar,		sedge_custom_edge
+scalar,		sedge_custom_shift
+
+boolean,	translucency_none_on
+boolean,	translucency_fixed_on
+scalar,		translucency_fixed_value
+boolean,	translucency_scale_on
+scalar,		translucency_scale_value
+
+_END
+

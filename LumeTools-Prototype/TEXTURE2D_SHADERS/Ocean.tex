@@ -1,0 +1,346 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 OFF
+NAME	"Ocean"
+_END
+
+
+_DESCRIPTION
+
+
+Ocean                                    lume
+---------------------------------------------
+
+
+       The Ocean shader simulates realis-
+       tic waves over a large body of wa-
+       ter. The artist can control the
+       look and feel of the ocean by ad-
+       justing the waves' height, rough-
+       ness, speed, direction, etc. Ocean
+       can even create a looping anima-
+       tion, with the number of frames in
+       the loop specified by the user.
+
+
+
+  Procedure
+
+        Create a large grid.
+
+        In the texture dialogue box, se-
+        lect Ocean as the texture shader.
+
+        Assign a dummy image to the tex-
+        ture.
+
+        Edit Ocean's parameters.
+
+
+
+  Parameters
+
+
+
+       Wave Size
+
+       The Wave Size box controls the
+       waves' basic size and shape.
+       Largest sets the size of the
+       largest waves in the ocean, Small-
+       est sets the size of the smallest
+       waves in the ocean, while Number
+       Between sets how many wave sizes
+       are between Largest and Smallest.
+       Increasing Number Between will give
+       a rougher look to the ocean.
+
+       Steepness gives another control on
+       the roughness of the ocean: smaller
+       values of Steepness will give a
+       calm, flatter ocean, while larger
+       values give a rougher, more active
+       ocean.
+
+       [IMAGE]
+
+
+
+       Wave Position
+
+       Wave positions can be relative to
+       World Center, so that two adjoining
+       grids wave patterns will be
+       aligned; or Object Center, so that
+       as the object moves, the wave pat-
+       terns will move with it.
+
+       Direction controls the overall
+       movement of the waves; either a Di-
+       rectionless choppy ocean, or a Di-
+       rected rolling-waves ocean.
+
+
+
+       Wave Animation
+
+       For animation, two controls are
+       available. Wave Speed controls the
+       movement rate of the waves. The de-
+       fault value of 1 is a good choice
+       for a scene where one SoftImage
+       unit is equivalent to one foot, and
+       where the animation is at 30 fps.
+
+       Loop Animation will force the ocean
+       into a looping animation. Frames
+       controls the number of frames in
+       the loop. Be warned, smaller num-
+       bers create a less realistic ocean.
+
+
+
+       Shape Method
+
+       Ocean creates its effect in one of
+       two ways. As a Bump, Ocean creates
+       the illusion of a rough surface
+       without actually changing the geom-
+       etry, similar to a bump map. Note
+       that Ocean's bumping effect is in-
+       dependent of the texture settings,
+       so the Roughness parameter in the
+       texture dialogue box should be set
+       to 0.
+
+       Ocean is usually best kept in Bump
+       mode, since it gives a very nice
+       wave effect without requiring addi-
+       tional geometry, and therefore does
+       not inordinately slow down render-
+       ing times.
+
+       In Displacement mode, Ocean creates
+       a greyscale image for the shape of
+       the ocean, with which it displaces
+       the actual geometry of the water
+       grid, using the displacement fea-
+       ture of mental ray. When using Dis-
+       placement, the Displacement parame-
+       ter in the texture dialogue box
+       should be enabled, and the rough-
+       ness should be set to 1.
+
+       As with all displacement mapping,
+       the object in question must have
+       enough geometry in order to proper-
+       ly resolve the shape of the dis-
+       placement map; this usually results
+       in extremely slowed rendering
+       times. If you wish to use displace-
+       ment, a good compromise can be
+       achieved by using Ocean twice: once
+       as a Bump for smaller waves, and
+       once as a Displacement for larger
+       waves.
+
+
+
+       Flats
+
+       Real oceans or lakes have differing
+       areas of roughness: some regions
+       can be fairly smooth, while other
+       areas are rough - the variations
+       caused by the effects of wind flow.
+       The Flats effect simulates these
+       differing areas. Size controls the
+       size of the area, while Variation
+       controls how different the areas
+       can be: lower values cause less
+       variation, higher values cause
+       greater variation.
+
+---------------------------------------------
+
+_END
+
+
+_DIALOG_TEMPLATE
+1,	"Ocean", 81,	1,	7,	241, 209, 1036, 850
+   1,	2,	"Ok",		935, 231, 1015, 268, 0
+   2,	2,	"Cancel",	847, 230, 927, 267, 0
+   3,	2,	"Insert",	554, 273, 624, 298, 0
+   4,	2,	"Next",		500, 237, 541, 262, 0
+   5,	2,	"Prev",		446, 237, 490, 262, 0
+   6,	2,	"Remove",	554, 237, 624, 262, 0
+   7,	5,	"1",		446, 270, 512, 300, 2, -99999, 999999, 0
+   8,	11,	"tuning",	512, 270, 540, 300, 7, 0, 1, 10, 100
+   9,	2,	"Save",		747, 229, 827, 266, 0
+   10,	2,	"Help",		657, 229, 737, 266, 0
+   11,	5,	"",		657, 283, 1015, 313, 0, MIN, MAX, 0
+   12,	0,	"User Comment",	657, 319, 765, 334, 0
+   13,	6,	"graf",		434, 228, 634, 318, 1
+   14,	0,	" Keyframe ",	446, 312, 536, 327, 0
+   15,	2,	"Preview",	278, 270, 410, 295, 0
+   16,	3,	"Auto-refresh",	281, 241, 409, 256, 0
+   17,	6,	"graf",		266, 228, 422, 318, 1
+   18,	0,	" Shaderball ",	278, 312, 386, 327, 0
+   19,	0,	"L U M E",	613, 834, 676, 849, 0
+   20,	0,	"^",		899, 754, 908, 769, 0
+   21,	0,	"^",		500, 622, 509, 637, 0
+   22,	0,	"^",		517, 671, 526, 686, 0
+   23,	0,	"^",		899, 412, 908, 427, 0
+   24,	0,	"Largest:",	299, 772, 371, 787, 0
+   25,	0,	"Smallest:",	298, 740, 379, 755, 0
+   26,	0,	"Number",	298, 707, 352, 722, 0
+   27,	0,	"between:",	298, 690, 370, 705, 0
+   28,	0,	"Steepness:",	298, 642, 388, 657, 0
+   29,	0,	"Relative to:",	297, 546, 405, 561, 0
+   30,	4,	"World Center",	314, 521, 404, 536, 1
+   31,	4,	"Object Center",314, 495, 404, 510, 0
+   32,	0,	"Direction:",	297, 457, 387, 472, 0
+   33,	4,	"Directionless",314, 431, 404, 446, 1
+   34,	4,	"Directed",	314, 405, 404, 420, 0
+   35,	0,	"Angle:",	363, 380, 417, 395, 0
+   36,	0,	"o",		478, 388, 487, 403, 0
+   37,	0,	"^",		962, 364, 971, 379, 0
+   38,	0,	"Wave Speed:",	680, 774, 779, 789, 0
+   39,	3,	"Loop animation",679, 714, 825, 729, 0
+   40,	0,	"Frames:",	735, 687, 798, 702, 0
+   41,	4,	"Bump",		680, 578, 770, 593, 1
+   42,	4,	"Displacement",	680, 553, 770, 568, 0
+   43,	0,	"Size:",	707, 432, 752, 447, 0
+   44,	0,	"Variation:",	707, 386, 797, 401, 0
+   45,	3,	"Active",	679, 465, 753, 480, 0
+   46,	5,	"0.25",		402, 731, 451, 761, 3, 0, 10, 48
+   47,	11,	"tuning",	452, 731, 480, 761, 46, 48, 0.1, 0.5, 1
+   48,	9,	"slider",	481, 731, 595, 761, 46, 0, 10, 1
+   49,	5,	"10.0",		402, 763, 451, 793, 3, 0, 10, 51
+   50,	11,	"tuning",	452, 763, 480, 793, 49, 51, 0.1, 0.5, 1
+   51,	9,	"slider",	481, 763, 595, 793, 49, 0, 10, 1
+   52,	5,	"4",		402, 683, 451, 713, 2, 1, 10, 54
+   53,	11,	"tuning",	452, 683, 480, 713, 52, 54, 0.1, 0.5, 1
+   54,	9,	"slider",	481, 683, 595, 713, 52, 1, 10, 1
+   55,	5,	"1.00",		402, 635, 451, 665, 3, 0, 5, 57
+   56,	11,	"tuning",	452, 635, 480, 665, 55, 57, 0.1, 0.5, 1
+   57,	9,	"slider",	481, 635, 595, 665, 55, 0, 5, 1
+   58,	5,	"0.00",		419, 369, 470, 399, 1, MIN, MAX, 0
+   59,	5,	"1.00",		800, 766, 849, 796, 3, 0, 5, 61
+   60,	11,	"tuning",	850, 766, 878, 796, 59, 61, 0.1, 0.5, 1
+   61,	9,	"slider",	879, 766, 993, 796, 59, 0, 5, 1
+   62,	5,	"100.0",	800, 425, 849, 455, 3, 0, 500, 64
+   63,	11,	"tuning",	850, 425, 878, 455, 62, 64, 0.1, 0.5, 1
+   64,	9,	"slider",	879, 425, 993, 455, 62, 0, 500, 1
+   65,	5,	"0.75",		800, 377, 849, 407, 3, 0, 1, 67
+   66,	11,	"tuning",	850, 377, 878, 407, 65, 67, 0.1, 0.5, 1
+   67,	9,	"slider",	879, 377, 993, 407, 65, 0, 1, 1
+   68,	6,	"graf",		266, 612, 634, 814, 1
+   69,	6,	"graf",		266, 352, 634, 587, 1
+   70,	6,	"graf",		657, 539, 1015, 619, 1
+   71,	6,	"graf",		657, 352, 1015, 504, 1
+   72,	0,	" Wave Size ",	279, 810, 378, 825, 0
+   73,	0,	" Wave Position ",277, 582, 412, 597, 0
+   74,	0,	" Shape Method ",667, 614, 793, 629, 0
+   75,	0,	" Flats ",	670, 501, 733, 516, 0
+   76,	0,	"^",		908, 665, 917, 680, 0
+   77,	5,	"50",		800, 677, 849, 707, 2, 10, 150, 79
+   78,	11,	"tuning",	850, 677, 878, 707, 77, 79, 1, 2, 3
+   79,	9,	"slider",	879, 677, 993, 707, 77, 10, 150, 1
+   80,	6,	"graf",		657, 646, 1015, 814, 1
+   81,	0,	" Wave Animation ",668, 810, 812, 825, 0
+
+_SYMBOLS
+  REFRESH    15
+  AUTOREFRESH    16
+  position_world_on    30
+  position_object_on    31
+  position_directionless_on    33
+  position_directed_on    34
+  animation_loop_on    39
+  shape_bump_on    41
+  shape_displacement_on    42
+  flats_on    45
+  size_smallest    46
+  size_largest    49
+  size_number    52
+  size_steepness    55
+  position_directed_angle    58
+  animation_speed    59
+  flats_size    62
+  flats_variation    65
+  animation_loop_frames    77
+_END
+
+_EXCLUSIVE
+30 31
+33 34
+41 42
+_END
+
+
+
+_DATA
+place_holder1 1.0
+place_holder2 1.0
+place_holder3 1.0
+_END
+
+
+_SHADER_PREVIEWER
+PLANE
+  ZPOS -100
+  SIZE 20 20
+  CHECKER
+    SQUARE1 0.8 0 0
+    SQUARE2 0.8 0 0
+    LINE 0.8 0.8 0.8
+    SIZE_SQUARE1 0.125
+    SIZE_SQUARE2 0.125
+    DIFFUSE 0 0 0
+SPHERE
+  ZPOS -20
+  SIZE 5
+WINDOW
+  POS 10 10
+RENDER
+  MIN_SAMPLES -5
+  MAX_SAMPLES 0
+_END
+
+
+_SHADER_LINKS
+LINK, Ocean.so
+_END
+
+
+_SHADER_DECLARE
+declare, Ocean
+
+scalar,  animation_speed
+boolean, animation_loop_on
+integer, animation_loop_frames
+
+boolean, flats_on
+scalar,  flats_size
+scalar,  flats_variation
+
+boolean, position_object_on
+boolean, position_world_on
+
+boolean, position_directionless_on
+boolean, position_directed_on
+scalar,  position_directed_angle
+
+boolean, shape_bump_on
+boolean, shape_displacement_on
+
+scalar,  size_largest
+scalar,  size_smallest
+integer, size_number
+scalar,  size_steepness
+
+scalar,  place_holder1
+scalar,  place_holder2
+scalar,  place_holder3
+_END

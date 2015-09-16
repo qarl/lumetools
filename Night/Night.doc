@@ -1,0 +1,68 @@
+
+
+Night                                    lume
+---------------------------------------------
+
+
+       Dimly lit scenes, in the real
+       world, have characteristic washed-
+       out colors. Objects that are bright
+       red in daylight appear to be soft
+       pink in moonlight. This desatura-
+       tion is a result of the way the two
+       types of light receptors in the hu-
+       man eye work: in bright lighting
+       conditions the color-sensitive
+       cones provide the information we
+       receive, but in darker conditions
+       the achromatic rods begin to take
+       over, giving us much less color in-
+       formation - which thereby makes ob-
+       jects appear desaturated. The Night
+       shader simulates their effect.
+
+       [IMAGE]
+
+
+
+  Procedure
+
+        Choose Camera->Settings.
+
+        Select Night as the lens shader.
+
+        Edit Night's parameters.
+
+
+
+  Parameters
+
+       Night works by boosting dim light-
+       ing by adding in a colorless compo-
+       ment - similar to the way the human
+       eye behaves. The artist chooses by
+       how much to boost the dim light
+       with the Multiplier parameter, and
+       defines what Night should consider
+       dim lighting, i.e. under what light
+       level it will begin to boost / de-
+       saturate, with the Cutoff parame-
+       ter.
+
+       When designing a nighttime scene,
+       it is essential that Night be acti-
+       vated before lighting is set. Night
+       has a significant effect on dim
+       lights: what looks good before ac-
+       tivating Night will need to be ad-
+       justed after activating Night.
+
+       It should be noted that Night simu-
+       lates the way human eyes work in
+       dim lighting, and not the way a
+       camera captures dimly lit images;
+       do not use Night if the rendered
+       image is intended to mimic a photo-
+       graphic look.
+
+---------------------------------------------

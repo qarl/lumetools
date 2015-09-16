@@ -1,0 +1,121 @@
+
+
+Adjustments                              lume
+---------------------------------------------
+
+
+       The Adjustments shader allows an
+       artist to adjust the color levels
+       of his rendered image. The effects
+       listed below are identical to those
+       of several popular packages includ-
+       ing Adobe PhotoShopTM and Adobe
+       AfterEffectsTM.
+
+
+
+  Procedure
+
+        In the render dialogue box, choose
+        mental ray for the rendering type.
+
+        Click on Options to get the mental
+        ray options dialogue.
+
+        In the output shaders box, select
+        the Adjustments shader, and edit
+        its parameters.
+
+
+
+  Parameters
+
+
+
+       Brightness / Contrast
+
+       Brightness adjusts the overall
+       brightness of the color.  Negative
+       values make the color darker, posi-
+       tive values make the color
+       brighter.
+
+       [IMAGE]
+
+       Contrast adjusts the variation of
+       brightness in an image. Negative
+       values shift the colors towards a
+       neutral gray, while positive values
+       make brights brighter, and darks
+       darker.
+
+       [IMAGE]
+
+
+
+       Hue / Saturation
+
+       Hue changes color in an image;
+       greens can become yellows, reds can
+       become blues. The value specified
+       here is the number of degrees to
+       rotate on the color wheel.
+
+       [IMAGE]
+
+       Saturation adjusts the ``purity''
+       of a color. Negative values mix in
+       grays, making pastels and lowering
+       the colors' saturation, while posi-
+       tive values remove grays and raise
+       the saturation.
+
+       [IMAGE]
+
+       Very similar to Brightness, Light-
+       ness adjusts the overall lightness
+       of a color, but uses a slightly
+       different technique.  Negative val-
+       ues bring the color to black, posi-
+       tive values bring the color to
+       white.
+
+       [IMAGE]
+
+
+
+       Levels
+
+       Levels allows the artist to adjust
+       the overall lighting levels of his
+       image, darkening or lightening
+       shadows and highlights.
+
+       Each of the RGB channels for each
+       pixel is changed in the following
+       way: values between Input Low and
+       Input High are remapped to a pro-
+       portional value between Output Low
+       and Output High. Values below Input
+       Low are remapped to Output Low, and
+       values above Input High are
+       remapped to Output High.
+
+       Input Shift will gamma correct the
+       color; a value here of 1.0 corre-
+       sponds to no gamma correction.
+
+
+
+       Region
+
+       Region controls where the color ad-
+       justments will take effect.  The
+       two choices are Entire Image, caus-
+       ing all of the image to be adjust-
+       ed, or Specific Objects, where only
+       those objects chosen in the Specif-
+       ic Objects box will have their col-
+       or adjusted.
+
+---------------------------------------------

@@ -1,0 +1,74 @@
+
+
+Submerge                                 lume
+---------------------------------------------
+
+
+       As light moves through murky water
+       it is scattered by a myriad of tiny
+       particles, causing the water to
+       slightly glow. Because the light
+       loses intensity as it is scattered,
+       deeper water glows less than shal-
+       low water.
+
+       Submerge simulates this scattering
+       effect, giving a realistic col-
+       oration to underwater scenes.
+
+
+
+  Procedure
+
+       When the camera is below the water
+       -
+
+        Choose Atmosphere->Depth Fading.
+
+        Select Submerge as the atmosphere
+        shader.
+
+        Edit Submerge's parameters.
+
+       When the camera is above the water
+       -
+
+        In the water surface's material
+        dialogue, select Submerge as the
+        volume shader.
+
+        Edit Submerge's parameters.
+
+
+
+  Parameters
+
+       Surface Height sets the position of
+       the top of the water. It is mea-
+       sured in SoftImage units from the
+       world center.
+
+       Vertical Gradation controls how
+       quickly the water becomes dark.
+       Lower values will cause the water
+       to be nearly uniform in color,
+       while higher values will cause an
+       abrupt change in water color, from
+       the lighter areas towards the sur-
+       face to the darker regions below.
+
+       [IMAGE]
+
+       Density controls how murky the wa-
+       ter is, i.e. how quickly objects
+       disappear as they become more dis-
+       tant. (Density is identical to the
+       Density parameter of the Mist shad-
+       er.)
+
+            NOTE: If banding occurs when
+            using Submerge, simply turn on
+            ``Dithering'' in the Render
+            dialogue box to correct it.
+
+---------------------------------------------

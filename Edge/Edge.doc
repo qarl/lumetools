@@ -1,0 +1,199 @@
+
+
+Edge                                     lume
+---------------------------------------------
+
+
+       Bump mapping is a powerful tool for
+       suggesting geometric detail when
+       such detail would be impractical as
+       actual geometry.  Unfortunately,
+       two situations in particular cause
+       a bump mapped surface to look fake:
+       when the profile edge of the sur-
+       face looks too smooth, and when
+       shadows falling on the surface look
+       too smooth.
+
+       The Edge shader remedies these
+       problems with two separate effects.
+       First, Edge can roughen or blur an
+       object's profile edge; second, Edge
+       can roughen the edges of shadows
+       falling onto the object.
+
+
+
+  Procedure
+
+       To modify the profile edge of an
+       object:
+
+        In the Material dialogue box, set
+        the object's transparency to 1.
+
+        Select Edge as the material shad-
+        er.
+
+        Edit Edge's profile parameters.
+
+       To modify the edges of shadows
+       falling onto the object.
+
+        In the Material dialogue box, se-
+        lect Edge as the material shader.
+
+        Edit Edge's shadow parameters.
+
+
+
+  Parameters
+
+
+
+       Profile Edges
+
+       Edge works by making the object
+       transparent at its profile edges.
+       The artist controls how much of the
+       edge should become transparent, how
+       blurry the edge should be, what
+       kind of noise effects the edge, and
+       how the surface color effects the
+       edge.
+
+       [IMAGE]
+
+            NOTE: Edge only works on
+            ``profile'' edges, that is,
+            edges that curve away from the
+            camera. Edge applied to a cube
+            would have no effect.
+
+
+
+       Profile Overall
+
+       Relative to controls whether the
+       edge effects are relative to the
+       World Center or the Object Center.
+
+       Amount controls how much of the
+       edge is made transparent, and
+       thereby how rough the edge will ap-
+       pear to be. Larger values cause
+       deeper cuts into the profile, while
+       smaller values cause less of an ef-
+       fect. A value of 0 essentially dis-
+       ables the entire effect.
+
+       Blur controls how fuzzy this edge
+       is. A value of 0 gives a sharp edge
+       line, while a value of 1 will cause
+       the entire edge region to be
+       blurred.
+
+
+
+       Profile Noise Effect
+
+       Influence sets the relative influ-
+       ence that the Noise Effect will
+       have on the profile edge, as com-
+       pared to the Color effect - similar
+       to the way Landscape's influence
+       function works.  When specifying
+       Influences, the ratio of the influ-
+       ences is all that is important.
+
+       Scale controls the size of the
+       largest clumps of noise.
+
+       Roughness controls how noisy the
+       edge of the noise is.
+
+
+
+       Profile Color Effect
+
+       Similar to Landscape's Image Effect
+       , the Color Effect uses the aggre-
+       gate color information of the ob-
+       ject's diffuse textures to generate
+       the edge.
+
+       Influence again sets the relative
+       influence of the effect; see above.
+
+
+
+       Shadow Edges
+
+       To roughen the edges of shadows,
+       Edge employs a trick very similar
+       to displacement mapping: it momen-
+       tarily raises the surface above the
+       geometry, so that shadows falling
+       on the surface reflect the shape of
+       the displacement, not the underly-
+       ing geometry.
+
+       The artist controls how far the
+       surface is displaced, what kind of
+       noise effects the displacement, and
+       how the surface color effects the
+       displacement.
+
+       [IMAGE]
+
+
+
+       Shadow Overall
+
+       Relative to controls whether the
+       edge effects are relative to the
+       World Center or the Object Center.
+
+       Amount controls how much the sur-
+       face is temporarily displaced (mea-
+       sured in SoftImage units), and
+       thereby how rough the edge of the
+       shadow will appear to be. Larger
+       values cause deeper cuts into the
+       shadow, while smaller values cause
+       less of an effect.  A value of 0
+       essentially disables the entire ef-
+       fect.
+
+
+
+       Shadow Noise Effect
+
+       Influence sets the relative influ-
+       ence that the Noise Effect will
+       have on the shadow's edge, as com-
+       pared to the Color effect - similar
+       to the way Landscape's influence
+       function works.  When specifying
+       Influences, the ratio of the influ-
+       ences is all that is important.
+
+       Scale controls the size of the
+       largest clumps of noise.
+
+       Roughness controls how noisy the
+       edge of the noise is.
+
+
+
+       Shadow Color Effect
+
+       Again, the Color Effect uses the
+       aggregate color information of the
+       object's diffuse textures to gener-
+       ate the shadow's edge.
+
+       Influence again sets the relative
+       influence of the effect; see above.
+
+---------------------------------------------

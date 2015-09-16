@@ -1,0 +1,223 @@
+
+
+Glass                                    lume
+---------------------------------------------
+
+
+       The Glass shader accurately models
+       the transparent and reflective
+       properties of glass, including
+       fresnel reflection and transparency
+       shifts near the object's edges,
+       coloration filtering of transparen-
+       cy rays (colored glass), colored
+       shadows, blurring of transmissions
+       and reflections, and more - all of
+       which provides a simple way to ob-
+       tain a fully realistic glass ef-
+       fect.
+
+
+
+  Procedure
+
+        In the Material dialogue box
+        choose appropriate values for re-
+        flectivity, transparency, and in-
+        dex of refraction. Good default
+        values are 1.0 for both the re-
+        flectivity and transparency, and
+        1.5 for the index of refraction.
+
+        Select the Glass shader as the ma-
+        terial shader, and edit its param-
+        eters.
+
+
+
+  Parameters
+
+
+
+       Transparency Tint
+
+       Tinting is the coloration that
+       glass gives light as it passes
+       through its surface. It is a sig-
+       nificantly different coloring tech-
+       nique than the diffuse coloring of
+       SoftImage: colors are filtered in-
+       stead of mixed so that blacks stay
+       black, and saturated colors remain
+       saturated (although possibly fil-
+       tered to a new hue).
+
+       [IMAGE]
+
+       Solid Color specifies that the en-
+       tire object should be tinted with
+       the same color, which is set with
+       the RGB sliders below.
+
+       From Diffuse specifies that the ob-
+       ject's diffuse color (taken either
+       from its material or from a texture
+       map) should be used as the tint
+       color.
+
+
+
+       Transparency and Reflectivity Blur-
+       ring
+
+       The blurring functions can be used
+       to blur rays as they pass through
+       the glass (transparency blurring),
+       or as they reflect off of the glass
+       (reflectivity blurring). For exam-
+       ple, together they might be used to
+       simulate a glass with a slightly
+       roughened surface - the transparen-
+       cy blurring would blur objects that
+       are seen through the glass, while
+       reflectivity blurring would blur
+       the reflections seen on the surface
+       of the glass itself.
+
+       The blurring is achieved by shoot-
+       ing multiple rays into a scene,
+       each in a slightly different direc-
+       tion, and then combining the re-
+       sults. The number of extra rays de-
+       termines the quality of the blur:
+       using more rays gives a better
+       blur, but also takes longer to ren-
+       der.
+
+       Samples controls how many extra
+       rays are used. Generally, a larger
+       value will improve the quality of
+       the blur but will also take longer
+       to render.
+
+       Spread controls the spread of the
+       extra rays. A wider angle of spread
+       gives a more blurred image, and
+       narrower angle of spread gives a
+       sharper image. A larger setting for
+       the spread value will require a
+       higher Samples setting to maintain
+       quality.
+
+       [IMAGE]
+
+
+
+       Edge Transparency
+
+       Edge Transparency allows the artist
+       to control how the transparency of
+       the object changes according to the
+       viewing angle.  In the real world,
+       glass objects become much less
+       transparent as the viewing angle
+       becomes greater.
+
+       None keeps the transparency con-
+       stant across the entire surface of
+       the object.
+
+       Fresnel accurately models how sur-
+       faces in the real world behave when
+       viewed at steep angles (using the
+       Fresnel equations from optics.) Be
+       warned, Fresnel is extremely sensi-
+       tive to the material's index of re-
+       fraction, as set in the material
+       dialogue box. For instance, if the
+       index of refraction is set to 1,
+       Fresnel will have no effect.
+
+       Custom allows the artist to control
+       exactly how the transparency
+       changes across the surface of the
+       object. Middle sets the transparen-
+       cy of rays traveling through the
+       center of the object, Edge sets the
+       transparency of rays skimming the
+       edge of the object, and Shift tells
+       how values in between should be in-
+       terpolated.  Low values for Shift
+       cause the Middle region to be wider
+       and the edge region to be narrower,
+       high values for shift cause the
+       Middle region to be narrower and
+       the edge region to be wider.  (See
+       the discussion on Custom Curves at
+       the end of this chapter.)
+
+       [IMAGE]
+
+
+
+       Edge Shadow
+
+       Edge Shadow varies the shadows cast
+       by the Glass object, causing the
+       centers to be bright and the edges
+       to be dark.
+
+            NOTE: Edge Shadow is not phys-
+            ically accurate; an accurate
+            solution requires forward ray
+            tracing techniques which are
+            notoriously slow. Shadow Edge
+            provides a quick, passable al-
+            ternative.
+
+       None keeps the shadow brightness
+       constant across the entire shadow;
+       the brightness is determined by the
+       transparency value set in the mate-
+       rial dialogue box.
+
+       Custom allows the artist to control
+       how the shadow brightness varies.
+       Middle control the brightness at
+       the middle of the shadow, Edge con-
+       trols the brightness at the edges,
+       and Shift controls how the values
+       in between are interpolated (as
+       above.)
+
+       [IMAGE]
+
+
+
+       Translucency
+
+       Translucency here works in exactly
+       the same way as the Translucency
+       shader. It allows a surface to be
+       diffusely lit from behind, in the
+       way that frosted glass is back-lit.
+       The higher the translucency value,
+       the more the back-lighting effects
+       the surface.  (For more informa-
+       tion, see the Translucency shader.)
+
+       None disables Translucency.
+
+       Fixed sets the translucency to a
+       fixed amount which does not vary
+       over the surface of the object.
+
+       Scale Transparency allows the
+       translucency to vary over the sur-
+       face of the object by linking it to
+       the transparency, which can be set
+       by the material, a transparency
+       map, or the Edge Transparency ef-
+       fect above.
+
+---------------------------------------------

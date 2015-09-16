@@ -1,0 +1,27 @@
+
+
+WrapAround                               lume
+---------------------------------------------
+
+
+       The WrapAround shader grabs a snap-
+       shot of the entire 360-degree envi-
+       ronment surrounding the camera.
+       This snapshot can be useful in a
+       variety of ways: as a reflectivity
+       map, spherically projected onto a
+       dome as an environment map, etc.
+
+
+
+  Procedure
+
+        Position the camera.
+
+        In the camera settings dialogue,
+        select WrapAround as the lens
+        shader.
+
+        Render.
+
+---------------------------------------------

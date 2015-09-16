@@ -1,0 +1,55 @@
+
+
+Facade                                   lume
+---------------------------------------------
+
+
+       Great for helping to make your
+       deadlines, the Facade shader places
+       virtual cardboard-cutouts in a
+       scene, allowing you to replace com-
+       plex geometry with simple 2D faces.
+       Facade then "rotates" the cutout so
+       that it faces the camera, lights,
+       and reflective surfaces all at the
+       same time. This way stretching in
+       the image, shadows, and reflections
+       is eliminated.
+
+       [IMAGE]
+
+
+
+  Procedure
+
+        Create a containing object (sphere
+        or cylinder are best).
+
+        In the Material dialogue box, set
+        the transparency to 1.
+
+        Assign a texture to the object.
+
+        In the 2D texture dialogue box,
+        select Facade as the texture shad-
+        er.
+
+        Edit Facade's parameters.
+
+
+
+  Parameters
+
+       Facade's Size parameter sets the
+       height of the facade image. Rota-
+       tion controls how the facade is al-
+       lowed to rotate: around the Y-axis
+       only (Cylindrical) or freely in all
+       three dimensions (Spherical).
+
+            NOTE: The texture's scaling,
+            rotation, and translation will
+            all be overridden by the Fa-
+            cade shader.
+
+---------------------------------------------

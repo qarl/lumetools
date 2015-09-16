@@ -1,0 +1,132 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 OFF
+NAME	"Night"
+_END
+
+
+_DESCRIPTION
+
+
+Night                                    lume
+---------------------------------------------
+
+
+       Dimly lit scenes, in the real
+       world, have characteristic washed-
+       out colors. Objects that are bright
+       red in daylight appear to be soft
+       pink in moonlight. This desatura-
+       tion is a result of the way the two
+       types of light receptors in the hu-
+       man eye work: in bright lighting
+       conditions the color-sensitive
+       cones provide the information we
+       receive, but in darker conditions
+       the achromatic rods begin to take
+       over, giving us much less color in-
+       formation - which thereby makes ob-
+       jects appear desaturated. The Night
+       shader simulates their effect.
+
+       [IMAGE]
+
+
+
+  Procedure
+
+        Choose Camera->Settings.
+
+        Select Night as the lens shader.
+
+        Edit Night's parameters.
+
+
+
+  Parameters
+
+       Night works by boosting dim light-
+       ing by adding in a colorless compo-
+       ment - similar to the way the human
+       eye behaves. The artist chooses by
+       how much to boost the dim light
+       with the Multiplier parameter, and
+       defines what Night should consider
+       dim lighting, i.e. under what light
+       level it will begin to boost / de-
+       saturate, with the Cutoff parame-
+       ter.
+
+       When designing a nighttime scene,
+       it is essential that Night be acti-
+       vated before lighting is set. Night
+       has a significant effect on dim
+       lights: what looks good before ac-
+       tivating Night will need to be ad-
+       justed after activating Night.
+
+       It should be noted that Night simu-
+       lates the way human eyes work in
+       dim lighting, and not the way a
+       camera captures dimly lit images;
+       do not use Night if the rendered
+       image is intended to mimic a photo-
+       graphic look.
+
+---------------------------------------------
+
+_END
+
+
+_DIALOG_TEMPLATE
+1,	"Night", 27,	1,	7,	432, 323, 844, 741
+   1,	2,	"Ok",		744, 344, 824, 381, 0
+   2,	2,	"Cancel",	654, 344, 734, 381, 0
+   3,	2,	"Insert",	667, 470, 737, 495, 0
+   4,	2,	"Next",		620, 470, 661, 495, 0
+   5,	2,	"Prev",		569, 470, 613, 495, 0
+   6,	2,	"Remove",	741, 470, 811, 495, 0
+   7,	5,	"1",		464, 466, 530, 496, 2, -99999, 999999, 0
+   8,	11,	"tuning",	530, 466, 558, 496, 7, 0, 1, 10, 100
+   9,	2,	"Save",		546, 344, 626, 381, 0
+   10,	2,	"Help",		456, 344, 536, 381, 0
+   11,	5,	"",		456, 398, 824, 428, 0, MIN, MAX, 0
+   12,	0,	"User Comment",	456, 434, 564, 449, 0
+   13,	6,	"graf",		454, 458, 822, 510, 1
+   14,	0,	" Keyframe ",	464, 508, 554, 523, 0
+   15,	0,	"Multiplier:",	476, 634, 575, 649, 0
+   16,	0,	"Cutoff:",	476, 583, 539, 598, 0
+   17,	0,	"^",		703, 563, 712, 578, 0
+   18,	0,	"^",		704, 612, 713, 627, 0
+   19,	5,	"3.000000",	582, 624, 640, 654, 1, 0, 10, 21
+   20,	11,	"tuning",	641, 624, 669, 654, 19, 21, 0.1, 0.1, 0.1
+   21,	9,	"slider",	670, 624, 791, 654, 19, 0, 10, 0.01
+   22,	5,	"0.030",	582, 575, 640, 605, 1, 0, 0.1, 24
+   23,	11,	"tuning",	641, 575, 669, 605, 22, 24, 0.01, 0.01, 0.01
+   24,	9,	"slider",	670, 575, 791, 605, 22, 0, 0.1, 0.01
+   25,	0,	"L U M E",	610, 724, 673, 739, 0
+   26,	6,	"graf",		454, 541, 822, 685, 1
+   27,	0,	" Brightness Factor ",465, 681, 636, 696, 0
+
+_SYMBOLS
+  strength    19
+  limit    22
+_END
+
+_EXCLUSIVE
+_END
+
+
+_DATA
+_END
+
+
+_SHADER_LINKS
+LINK, Night.so
+_END
+
+_SHADER_DECLARE
+declare,	Night
+scalar,		strength
+scalar,		limit
+_END

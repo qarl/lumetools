@@ -1,0 +1,153 @@
+
+
+Mist                                     lume
+---------------------------------------------
+
+
+       The Mist shader can create both a
+       true layered fog, along with a re-
+       alistic depth fading effect - supe-
+       rior to that of Softimage's built-
+       in depth fading. In addition, it
+       allows for increased control by
+       providing the ability to specify
+       directional variation with a tex-
+       ture map.
+
+       Perhaps Mist's most interesting ap-
+       plication is on containers; apply-
+       ing Mist as a volume shader of a
+       transparent object gives the object
+       a murky interior, without adversely
+       effecting rendering times.
+
+
+
+  Procedure
+
+       To use as an atmosphere:
+
+        Choose Atmosphere->Depth Fading.
+
+        Select Mist as the depth fading
+        shader; make sure that the Softim-
+        age Depth Fading check box is
+        checked.
+
+        Edit Mist's parameters.
+
+       To use on the volume of an object:
+
+        In the Material dialogue box, se-
+        lect Mist as the volume shader.
+
+        Edit Mist's parameters.
+
+
+
+  Parameters
+
+
+
+       Overall
+
+       Transparency controls the fog's
+       maximum transparency. The fog will
+       never become more opaque than this
+       value. Low values give a more
+       opaque fog, higher values give a
+       more transparent fog.
+
+       Effect Alpha-Channel controls
+       whether or not Mist applies itself
+       to the alpha channel. With Effect
+       Alpha-Channel turned off, Mist will
+       not alter the alpha-channel value.
+
+            NOTE: Mental Ray has strange
+            rules for alpha-channels, and
+            may alter an image's alpha-
+            channel even though you've de-
+            selected Effect Alpha-Channel.
+            See the Mental Ray User's Man-
+            ual for more information.
+
+
+
+       Color
+
+       The artist has two ways of setting
+       the fog's color. With Solid the
+       artist chooses one color that is
+       applied in all directions, while
+       From Image changes the color de-
+       pending on viewing direction, much
+       like a reflection map, useful in
+       situations such as a sunset, where
+       the fog color is different when
+       looking toward or away from the
+       sun.
+
+
+
+       Layering
+
+       To get the appearance of fog laying
+       on a surface, Layering changes the
+       fog's thickness as a function of
+       height. Baseline controls the lay-
+       er's vertical position, measured in
+       SoftImage units from the world cen-
+       ter. Height controls how tall the
+       transitional layer is, and thus how
+       abruptly the fog varies from opaque
+       to transparent.
+
+       [IMAGE]
+
+
+
+       Falloff
+
+       The Falloff settings control the
+       rate at which the fog becomes
+       opaque over distance.
+
+       Linear is the traditional method
+       used by SoftImage. At the Start
+       distance the fog is transparent,
+       and the End distance the fog is
+       opaque. Distances between are in-
+       terpolated linearly.
+
+       Realistic uses an exponential func-
+       tion, similar to a true, natural
+       fog. Where the Linear falloff has
+       an abrupt end (as an object passes
+       through the End distance, it almost
+       seems to spring out of view) the
+       Realistic falloff is more gradual.
+       With Realistic, the artist has no
+       direct control over starting and
+       ending distances, only the fog's
+       overall thickness, controlled with
+       Density.
+
+       Custom allows the artist to specify
+       exactly what he wants as the
+       falloff curve. At the Start dis-
+       tance the fog is transparent, and
+       at the End distance the fog is
+       opaque.  At the Middle distance the
+       fog is exactly halfway between
+       transparent and opaque. Distances
+       between are interpolated on a
+       spline curve. (See the discussion
+       on Custom Curves.)
+
+            NOTE: If banding occurs when
+            using Mist, simply turn on
+            ``Dithering'' in the Render
+            dialogue box to correct it.
+
+---------------------------------------------

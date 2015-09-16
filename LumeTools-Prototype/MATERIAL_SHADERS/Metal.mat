@@ -1,0 +1,199 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 ON
+NAME	"Metal"
+_END
+
+
+_DESCRIPTION
+
+
+Metal                                    lume
+---------------------------------------------
+
+
+       The Metal shader helps to create a
+       truly realistic metal by modelling
+       a metallic object's reflective
+       properties, including color filter-
+       ing of the reflected rays, and
+       blurring of the reflected images.
+
+
+
+  Procedure
+
+        In the Material dialogue box, se-
+        lect Metal as the material shader.
+
+        Edit Metal's parameters.
+
+
+
+  Parameters
+
+
+
+       Reflectivity Tint
+
+       Tinting is the coloration that met-
+       al gives light as it reflects from
+       its surface. It is a significantly
+       different coloring technique than
+       the diffuse coloring of SoftImage:
+       colors are filtered instead of
+       mixed so that blacks stay black,
+       and saturated colors remain satu-
+       rated (although possibly filtered
+       to a new hue).
+
+       [IMAGE]
+
+       Solid Color specifies that the en-
+       tire object should be tinted with
+       the same color, which is set with
+       the color sliders below.
+
+       From Specular specifies that the
+       objects specular color (taken ei-
+       ther from its material or from a
+       texture map) should be used as the
+       tint color.
+
+
+
+       Reflectivity Blurring
+
+       Blurring can be used to blur the
+       reflections seen on the surface of
+       the metal. The blurring is achieved
+       by shooting multiple rays into a
+       scene, each in a slightly different
+       direction, and then mixing the re-
+       sults. The number of the extra rays
+       determines the quality of the blur:
+       more rays give a better blur but
+       also take longer.
+
+       Samples controls how many extra
+       rays are used. Generally, a larger
+       value will improve the quality of
+       the blur but will also take longer
+       to render.
+
+       Spread controls the spread of the
+       extra rays. A wider angle of spread
+       gives a more blurred image, and
+       narrower angle of spread gives a
+       sharper images. A larger setting
+       for the spread value will require a
+       higher Samples setting to maintain
+       quality.
+
+       [IMAGE]
+
+---------------------------------------------
+
+_END
+
+
+_DIALOG_TEMPLATE
+1,	"Metal", 36,	1,	7,	433, 157, 847, 866
+   1,	2,	"Ok",		744, 178, 824, 215, 0
+   2,	2,	"Cancel",	654, 178, 734, 215, 0
+   3,	2,	"Insert",	744, 337, 814, 362, 0
+   4,	2,	"Next",		690, 301, 731, 326, 0
+   5,	2,	"Prev",		636, 301, 680, 326, 0
+   6,	2,	"Remove",	744, 301, 814, 326, 0
+   7,	5,	"1",		636, 334, 702, 364, 2, -99999, 999999, 0
+   8,	11,	"tuning",	702, 334, 730, 364, 7, 0, 1, 10, 100
+   9,	2,	"Save",		546, 178, 626, 215, 0
+   10,	2,	"Help",		456, 178, 536, 215, 0
+   11,	5,	"",		456, 232, 826, 262, 0, MIN, MAX, 0
+   12,	0,	"User Comment",	456, 268, 564, 283, 0
+   13,	6,	"graf",		624, 292, 826, 382, 1
+   14,	0,	" Keyframe ",	636, 376, 726, 391, 0
+   15,	2,	"Preview",	468, 334, 600, 359, 0
+   16,	3,	"Auto-refresh",	471, 305, 599, 320, 0
+   17,	6,	"graf",		456, 292, 612, 382, 1
+   18,	0,	" Shaderball ",	468, 376, 576, 391, 0
+   19,	0,	"",		566, 618, 566, 633, 0
+   20,	0,	"L U M E",	611, 849, 674, 864, 0
+   21,	4,	"None",		475, 768, 565, 783, 1
+   22,	4,	"From Specular",475, 744, 565, 759, 0
+   23,	4,	"Solid Color:",	475, 720, 565, 735, 0
+   24,	0,	"Spread:",	487, 471, 550, 486, 0
+   25,	0,	"Samples:",	487, 437, 559, 452, 0
+   26,	5,	"2.00",		563, 460, 622, 490, 3, 0, 30, 0
+   27,	5,	"5",		563, 428, 622, 458, 2, 1, 20, 29
+   28,	11,	"tuning",	623, 428, 651, 458, 27, 29, 1, 2, 3
+   29,	9,	"slider",	652, 428, 817, 458, 27, 1, 20, 1
+   30,	13,   "",464, 595, 817, 715, 0, 1, 1, 1, 0, 1.000000, 0.880000, 0.480000, 0.000000
+   31,	6,	"graf",		456, 581, 826, 804, 1
+   32,	0,	" Reflection Tint",464, 801, 608, 816, 0
+   33,	0,	"o",		629, 481, 638, 496, 0
+   34,	3,	"Active",	470, 504, 544, 519, 0
+   35,	6,	"graf",		456, 413, 826, 543, 1
+   36,	0,	" Reflection Blurring ",465, 539, 654, 554, 0
+
+_SYMBOLS
+  REFRESH    15
+  AUTOREFRESH    16
+  reflect_clear_on    21
+  reflect_specular_on    22
+  reflect_solid_on    23
+  surface_blurred_spread    26
+  surface_blurred_samples    27
+  reflect_solid_color    30
+  surface_blurred_on    34
+_END
+
+_EXCLUSIVE
+21 22 23
+_END
+
+
+
+_DATA
+_END
+
+
+_SHADER_LINKS
+LINK, Metal.so
+_END
+
+_SHADER_PREVIEWER
+PLANE
+  ZPOS -100
+  SIZE 20 20
+  CHECKER
+    SQUARE1 0.8 0 0
+    SQUARE2 0.8 0 0
+    LINE 0.8 0.8 0.8
+    SIZE_SQUARE1 0.125
+    SIZE_SQUARE2 0.125
+    DIFFUSE 0 0 0
+SPHERE
+  ZPOS -20
+  SIZE 5
+WINDOW
+  POS 10 10
+RENDER
+  MIN_SAMPLES -5
+  MAX_SAMPLES 0
+_END
+
+
+_SHADER_DECLARE
+declare,	Metal
+boolean,	reflect_clear_on
+boolean,	reflect_specular_on
+boolean,	reflect_solid_on
+rgba,		reflect_solid_color
+
+boolean,	surface_blurred_on
+scalar,		surface_blurred_spread
+integer,	surface_blurred_samples
+_END
+
+

@@ -1,0 +1,402 @@
+_FILETYPE
+VERSION	 1.0
+DEFAULT	 ON
+NAME	"Edge"
+_END
+
+
+_DESCRIPTION
+
+
+Edge                                     lume
+---------------------------------------------
+
+
+       Bump mapping is a powerful tool for
+       suggesting geometric detail when
+       such detail would be impractical as
+       actual geometry.  Unfortunately,
+       two situations in particular cause
+       a bump mapped surface to look fake:
+       when the profile edge of the sur-
+       face looks too smooth, and when
+       shadows falling on the surface look
+       too smooth.
+
+       The Edge shader remedies these
+       problems with two separate effects.
+       First, Edge can roughen or blur an
+       object's profile edge; second, Edge
+       can roughen the edges of shadows
+       falling onto the object.
+
+
+
+  Procedure
+
+       To modify the profile edge of an
+       object:
+
+        In the Material dialogue box, set
+        the object's transparency to 1.
+
+        Select Edge as the material shad-
+        er.
+
+        Edit Edge's profile parameters.
+
+       To modify the edges of shadows
+       falling onto the object.
+
+        In the Material dialogue box, se-
+        lect Edge as the material shader.
+
+        Edit Edge's shadow parameters.
+
+
+
+  Parameters
+
+
+
+       Profile Edges
+
+       Edge works by making the object
+       transparent at its profile edges.
+       The artist controls how much of the
+       edge should become transparent, how
+       blurry the edge should be, what
+       kind of noise effects the edge, and
+       how the surface color effects the
+       edge.
+
+       [IMAGE]
+
+            NOTE: Edge only works on
+            `profile' edges, that is,
+            edges that curve away from the
+            camera. Edge applied to a cube
+            would have no effect.
+
+
+
+       Profile Overall
+
+       Relative to controls whether the
+       edge effects are relative to the
+       World Center or the Object Center.
+
+       Amount controls how much of the
+       edge is made transparent, and
+       thereby how rough the edge will ap-
+       pear to be. Larger values cause
+       deeper cuts into the profile, while
+       smaller values cause less of an ef-
+       fect. A value of 0 essentially dis-
+       ables the entire effect.
+
+       Blur controls how fuzzy this edge
+       is. A value of 0 gives a sharp edge
+       line, while a value of 1 will cause
+       the entire edge region to be
+       blurred.
+
+
+
+       Profile Noise Effect
+
+       Influence sets the relative influ-
+       ence that the Noise Effect will
+       have on the profile edge, as com-
+       pared to the Color effect - similar
+       to the way Landscape's influence
+       function works.  When specifying
+       Influences, the ratio of the influ-
+       ences is all that is important.
+
+       Scale controls the size of the
+       largest clumps of noise.
+
+       Roughness controls how noisy the
+       edge of the noise is.
+
+
+
+       Profile Color Effect
+
+       Similar to Landscape's Image Effect
+       , the Color Effect uses the aggre-
+       gate color information of the ob-
+       ject's diffuse textures to generate
+       the edge.
+
+       Influence again sets the relative
+       influence of the effect; see above.
+
+
+
+       Shadow Edges
+
+       To roughen the edges of shadows,
+       Edge employs a trick very similar
+       to displacement mapping: it momen-
+       tarily raises the surface above the
+       geometry, so that shadows falling
+       on the surface reflect the shape of
+       the displacement, not the underly-
+       ing geometry.
+
+       The artist controls how far the
+       surface is displaced, what kind of
+       noise effects the displacement, and
+       how the surface color effects the
+       displacement.
+
+       [IMAGE]
+
+
+
+       Shadow Overall
+
+       Relative to controls whether the
+       edge effects are relative to the
+       World Center or the Object Center.
+
+       Amount controls how much the sur-
+       face is temporarily displaced (mea-
+       sured in SoftImage units), and
+       thereby how rough the edge of the
+       shadow will appear to be. Larger
+       values cause deeper cuts into the
+       shadow, while smaller values cause
+       less of an effect.  A value of 0
+       essentially disables the entire ef-
+       fect.
+
+
+
+       Shadow Noise Effect
+
+       Influence sets the relative influ-
+       ence that the Noise Effect will
+       have on the shadow's edge, as com-
+       pared to the Color effect - similar
+       to the way Landscape's influence
+       function works.  When specifying
+       Influences, the ratio of the influ-
+       ences is all that is important.
+
+       Scale controls the size of the
+       largest clumps of noise.
+
+       Roughness controls how noisy the
+       edge of the noise is.
+
+
+
+       Shadow Color Effect
+
+       Again, the Color Effect uses the
+       aggregate color information of the
+       object's diffuse textures to gener-
+       ate the shadow's edge.
+
+       Influence again sets the relative
+       influence of the effect; see above.
+
+---------------------------------------------
+
+_END
+
+
+_DIALOG_TEMPLATE
+1,	"Edge", 86,	1,	7,	239, 183, 1040, 841
+   1,	2,	"Ok",		937, 208, 1017, 245, 0
+   2,	2,	"Cancel",	847, 208, 927, 245, 0
+   3,	2,	"Insert",	551, 252, 621, 277, 0
+   4,	2,	"Next",		497, 216, 538, 241, 0
+   5,	2,	"Prev",		443, 216, 487, 241, 0
+   6,	2,	"Remove",	551, 216, 621, 241, 0
+   7,	5,	"1",		443, 249, 509, 279, 2, -99999, 999999, 0
+   8,	11,	"tuning",	509, 249, 537, 279, 7, 0, 1, 10, 100
+   9,	2,	"Save",		739, 208, 819, 245, 0
+   10,	2,	"Help",		649, 208, 729, 245, 0
+   11,	5,	"",		649, 262, 1017, 292, 0, MIN, MAX, 0
+   12,	0,	"User Comment",	649, 298, 757, 313, 0
+   13,	6,	"graf",		431, 207, 631, 297, 1
+   14,	0,	" Keyframe ",	443, 291, 533, 306, 0
+   15,	2,	"Preview",	275, 249, 407, 274, 0
+   16,	3,	"Auto-refresh",	278, 220, 406, 235, 0
+   17,	6,	"graf",		262, 207, 418, 297, 1
+   18,	0,	" Shaderball ",	275, 291, 383, 306, 0
+   19,	0,	"L U M E",	609, 825, 672, 840, 0
+   20,	0,	"Scale:",	315, 484, 369, 499, 0
+   21,	3,	"Active",	276, 528, 350, 543, 0
+   22,	0,	"Influence:",	386, 532, 476, 547, 0
+   23,	5,	"0.50",		482, 524, 531, 554, 3, 0, 1, 25
+   24,	11,	"tuning",	532, 524, 560, 554, 23, 25, 0.01, 0.05, 0.1
+   25,	9,	"slider",	561, 524, 611, 554, 23, 0, 1, 1
+   26,	5,	"2.000",	371, 474, 430, 504, 3, 0, 10, 28
+   27,	11,	"tuning",	431, 474, 459, 504, 26, 28, 1, 2, 3
+   28,	9,	"slider",	460, 474, 613, 504, 26, 0, 10, 1
+   29,	0,	"Roughness:",	279, 452, 369, 467, 0
+   30,	5,	"0.500",	371, 442, 430, 472, 3, 0, 1, 32
+   31,	11,	"tuning",	431, 442, 459, 472, 30, 32, 1, 2, 3
+   32,	9,	"slider",	460, 442, 613, 472, 30, 0, 1, 1
+   33,	6,	"graf",		262, 426, 629, 565, 1
+   34,	0,	" Profile Noise Effect ",274, 563, 472, 578, 0
+   35,	4,	"object center",302, 685, 392, 700, 1
+   36,	4,	"world center",	302, 660, 392, 675, 0
+   37,	0,	"Relative to:",	281, 714, 389, 729, 0
+   38,	3,	"Active",	274, 360, 348, 375, 0
+   39,	0,	"Influence:",	384, 364, 474, 379, 0
+   40,	5,	"0.50",		480, 356, 529, 386, 3, 0, 1, 42
+   41,	11,	"tuning",	530, 356, 558, 386, 40, 42, 0.01, 0.05, 0.1
+   42,	9,	"slider",	559, 356, 609, 386, 40, 0, 1, 1
+   43,	6,	"graf",		262, 342, 629, 397, 1
+   44,	0,	" Profile Color Effect ",276, 391, 474, 406, 0
+   45,	0,	"Blur:",	281, 621, 326, 636, 0
+   46,	5,	"0.00",		371, 612, 430, 642, 3, 0, 1, 48
+   47,	11,	"tuning",	431, 612, 459, 642, 46, 48, 1, 2, 3
+   48,	9,	"slider",	460, 612, 613, 642, 46, 0, 1, 1
+   49,	0,	"Amount:",	281, 756, 344, 771, 0
+   50,	5,	"0.00",		371, 743, 430, 773, 3, 0, 10, 52
+   51,	11,	"tuning",	431, 743, 459, 773, 50, 52, 1, 2, 3
+   52,	9,	"slider",	460, 743, 613, 773, 50, 0, 10, 1
+   53,	0,	"Scale:",	703, 484, 757, 499, 0
+   54,	3,	"Active",	664, 528, 738, 543, 0
+   55,	0,	"Influence:",	774, 532, 864, 547, 0
+   56,	5,	"0.50",		870, 524, 919, 554, 3, 0, 1, 58
+   57,	11,	"tuning",	920, 524, 948, 554, 56, 58, 0.01, 0.05, 0.1
+   58,	9,	"slider",	949, 524, 999, 554, 56, 0, 1, 1
+   59,	5,	"2.000",	759, 474, 818, 504, 3, 0, 10, 61
+   60,	11,	"tuning",	819, 474, 847, 504, 59, 61, 1, 2, 3
+   61,	9,	"slider",	848, 474, 1001, 504, 59, 0, 10, 1
+   62,	0,	"Roughness:",	667, 452, 757, 467, 0
+   63,	5,	"0.500",	759, 442, 818, 472, 3, 0, 1, 65
+   64,	11,	"tuning",	819, 442, 847, 472, 63, 65, 1, 2, 3
+   65,	9,	"slider",	848, 442, 1001, 472, 63, 0, 1, 1
+   66,	6,	"graf",		650, 426, 1017, 565, 1
+   67,	0,	" Shadow Noise Effect ",662, 563, 851, 578, 0
+   68,	4,	"object center",690, 685, 780, 700, 1
+   69,	4,	"world center",	690, 660, 780, 675, 0
+   70,	0,	"Relative to:",	669, 714, 777, 729, 0
+   71,	3,	"Active",	662, 360, 736, 375, 0
+   72,	0,	"Influence:",	772, 364, 862, 379, 0
+   73,	5,	"0.50",		868, 356, 917, 386, 3, 0, 1, 75
+   74,	11,	"tuning",	918, 356, 946, 386, 73, 75, 0.01, 0.05, 0.1
+   75,	9,	"slider",	947, 356, 997, 386, 73, 0, 1, 1
+   76,	6,	"graf",		650, 342, 1017, 397, 1
+   77,	0,	" Shadow Color Effect ",664, 391, 853, 406, 0
+   78,	0,	"(Blurring not available)",669, 621, 885, 636, 0
+   79,	0,	"Amount:",	669, 756, 732, 771, 0
+   80,	5,	"0.00",		759, 743, 818, 773, 3, 0, 5, 82
+   81,	11,	"tuning",	819, 743, 847, 773, 80, 82, 1, 2, 3
+   82,	9,	"slider",	848, 743, 1001, 773, 80, 0, 5, 1
+   83,	6,	"graf",		262, 601, 629, 798, 1
+   84,	0,	" Profile Overall ",276, 793, 429, 808, 0
+   85,	6,	"graf",		650, 601, 1017, 798, 1
+   86,	0,	" Shadow Overall ",666, 794, 810, 809, 0
+
+_SYMBOLS
+  REFRESH    15
+  AUTOREFRESH    16
+  profile_noise_on    21
+  profile_noise_influence    23
+  profile_noise_scale    26
+  profile_noise_roughness    30
+  profile_relative_object_on    35
+  profile_relative_world_on    36
+  profile_color_on    38
+  profile_color_influence    40
+  profile_blur    46
+  profile_amount    50
+  shadow_noise_on    54
+  shadow_noise_influence    56
+  shadow_noise_scale    59
+  shadow_noise_roughness    63
+  shadow_relative_object_on    68
+  shadow_relative_world_on    69
+  shadow_color_on    71
+  shadow_color_influence    73
+  shadow_amount    80
+_END
+
+_EXCLUSIVE
+35 36
+68 69
+_END
+
+
+
+
+_DATA
+dum1a 0.0
+dum1b 0.0
+dum2a 0.0
+dum2b 0.0
+_END
+
+
+_SHADER_PREVIEWER
+PLANE
+  ZPOS -80
+  SIZE 20 20
+  CHECKER
+    SQUARE1 0.8 0 0
+    SQUARE2 0.8 0 0
+    LINE 0.8 0.8 0.8
+    SIZE_SQUARE1 0.125
+    SIZE_SQUARE2 0.125
+    DIFFUSE 0 0 0
+SPHERE
+  ZPOS -20
+  SIZE 5
+WINDOW
+  POS 10 10
+RENDER
+  MIN_SAMPLES -5
+  MAX_SAMPLES 0
+
+_END
+
+
+_SHADER_LINKS
+LINK, Edge.so
+_END
+
+_SHADER_DECLARE
+declare,	Edge
+
+scalar,  profile_amount
+scalar,  profile_blur
+
+boolean, profile_color_on
+scalar,  profile_color_influence
+
+boolean, profile_noise_on
+scalar,  profile_noise_influence
+scalar,  profile_noise_roughness
+scalar,  profile_noise_scale
+
+boolean, profile_relative_object_on
+boolean, profile_relative_world_on
+
+scalar,  shadow_amount
+
+boolean, shadow_color_on
+scalar,  shadow_color_influence
+
+boolean, shadow_noise_on
+scalar,  shadow_noise_influence
+scalar,  shadow_noise_roughness
+scalar,  shadow_noise_scale
+
+boolean, shadow_relative_object_on
+boolean, shadow_relative_world_on
+
+scalar,  dum1a
+scalar,  dum1b
+scalar,  dum2a
+scalar,  dum2b
+_END

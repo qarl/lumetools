@@ -1,0 +1,72 @@
+
+
+Wet                                      lume
+---------------------------------------------
+
+
+       Wet objects have a significantly
+       different appearance than dry ob-
+       jects: some have more saturated
+       colors, others acquire a specular
+       highlight. The Wet shader facili-
+       tates the creation of this effect
+       by swapping textures for surfaces
+       that are ``wet''.
+
+       [IMAGE]
+
+
+
+  Procedure
+
+        Apply a dry-looking texture to the
+        object.
+
+        Apply a wet-looking texture to the
+        object. (On top of the dry-looking
+        one.)
+
+        In the wet-looking texture's dia-
+        logue box, select Alpha-Channel
+        Mask as the blending.
+
+        In the wet-looking texture's dia-
+        logue box, select Wet as the tex-
+        ture shader; this designates this
+        texture as `wet.'
+
+
+
+  Parameters
+
+       ``Wetness'' is specified by either
+       the WaterSurface or Stain shaders;
+       when an object with a texture des-
+       ignated as `wet' is seen through
+       the surface of an object which has
+       either Stain or WaterSurface ap-
+       plied, the wet object will display
+       its `wet' texture. (In the case of
+       WaterSurface, the `Stain Under-
+       neath' effect must be selected.)
+
+       Note that if the camera enters the
+       water, the textures must be reas-
+       signed, as objects that are under-
+       water will no longer be seen
+       through the surface of the water -
+       since the camera itself is now un-
+       derwater as well. In this case, the
+       dry-looking texture must now be
+       placed on top of the wet-looking
+       texture; also, the Wet shader would
+       be removed from the wet-looking
+       texture and applied to the dry-
+       looking one instead, since this is
+       the texture that the submerged cam-
+       era would be seeing through the
+       surface of the water. (See the
+       LumeWater tutorial for an example
+       of this procedure.)
+
+---------------------------------------------
